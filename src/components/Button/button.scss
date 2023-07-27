@@ -1,0 +1,64 @@
+$--button-primary-background: #3E7BFA;
+$--button-primary-border-color: #3E7BFA;
+$--button-primary-background-hover: #386FE1;
+$--button-primary-border-hover-color: #386FE1;
+$--button-primary-background-active: #3569d4;
+$--button-primary-border-active-color: #3569d4;
+$--button-primary-text-color: #f9fbff;
+
+$--button-secondary-background: #f3f8ff;
+$--button-secondary-background-hover: #e7f1ff;
+$--button-secondary-background-active: #dbeaff;
+$--button-secondary-text-color: #3E7BFA;
+$--button-secondary-border-color: #3E7BFA;
+
+
+.Button {
+  border: 1px solid $--button-primary-background;
+  border-radius: 4px; //8px looks better
+  color: $--button-primary-text-color;
+  padding: 0 24px;
+  height: 32px;
+  font-size: 14px;
+  background-color: $--button-primary-background;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $--button-primary-background-hover;
+    border-color: $--button-primary-border-hover-color;
+  }
+
+  &:active {
+    background-color: $--button-primary-background-active;
+    border-color: $--button-primary-border-active-color;
+  }
+
+  &.Button--small {
+    height: 24px;
+    font-size: 12px;
+  }
+
+  &.Button--large {
+    height: 40px;
+    font-size: 16px;
+  }
+
+  &.Button--secondary {
+    background-color: $--button-secondary-background;
+    color: $--button-secondary-text-color;
+    border-color: $--button-secondary-border-color;
+
+    &:hover {
+      background-color: $--button-secondary-background-hover;
+    }
+
+    &:active {
+      background-color: $--button-secondary-background-active;
+    }
+  }
+
+  &.Button--disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}
