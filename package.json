@@ -22,6 +22,7 @@
     "lint": "yarn lint:script && yarn lint:style",
     "lint:script": "eslint ./src --ext .js,.jsx,.ts,.tsx",
     "lint:style": "stylelint ./src",
+    "lint:style:fix": "stylelint ./src --fix",
     "storybook": "start-storybook -p 9001 -s ./src/assets -c .storybook",
     "test": "jest --maxWorkers=2",
     "test:watch": "yarn test --watch",
