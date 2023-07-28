@@ -2,16 +2,15 @@ $--button-primary-background: #3E7BFA;
 $--button-primary-border-color: #3E7BFA;
 $--button-primary-background-hover: #386FE1;
 $--button-primary-border-hover-color: #386FE1;
-$--button-primary-background-active: #3569d4;
-$--button-primary-border-active-color: #3569d4;
-$--button-primary-text-color: #f9fbff;
+$--button-primary-background-active: #3569D4;
+$--button-primary-border-active-color: #3569D4;
+$--button-primary-text-color: #F9FBFF;
 
-$--button-secondary-background: #f3f8ff;
-$--button-secondary-background-hover: #e7f1ff;
-$--button-secondary-background-active: #dbeaff;
+$--button-secondary-background: #F3F8FF;
+$--button-secondary-background-hover: #E7F1FF;
+$--button-secondary-background-active: #DBEAFF;
 $--button-secondary-text-color: #3E7BFA;
 $--button-secondary-border-color: #3E7BFA;
-
 
 .Button {
   border: 1px solid $--button-primary-background;
