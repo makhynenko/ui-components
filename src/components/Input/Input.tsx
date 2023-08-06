@@ -2,15 +2,16 @@ import React from 'react';
 import './input.scss';
 import classnames from 'classnames';
 
+// export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'size' | 'checked'> {
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   disabled?: boolean,
-  componentSize?: 'small' | 'medium' | 'large',
+  size?: 'small' | 'medium' | 'large',
   invalid?: boolean,
 }
 
 export const Input: React.FC<InputProps> = ({
-  disabled, invalid, componentSize, className, ...props
+  disabled, invalid, size: componentSize, className, ...props
 }) => {
   const classes = classnames(
     'Input',
