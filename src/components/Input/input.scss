@@ -1,0 +1,50 @@
+$--input-border-color: #EAEAEC;
+$--input-placeholder-color: #A6A7BA;
+
+$--input-border-color-active: #3E7BFA;
+$--input-border-color-invalid: #FE7374;
+
+$--input-background-color-disabled: #F1F2F5;
+$--input-border-color-disabled: #F3F3F5;
+$--input-placeholder-color-disabled: #A5A6B9;
+
+.Input {
+  border: 1px solid $--input-border-color;
+  border-radius: 4px;
+  padding: 0 8px;
+  height: 32px;
+  font-size: 14px;
+
+  &::placeholder {
+    color: $--input-placeholder-color;
+  }
+
+  &:focus-visible {
+    border: 1px solid $--input-border-color-active;
+    outline: none;
+  }
+
+  &--invalid {
+    border: 1px solid $--input-border-color-invalid;
+    outline: none;
+  }
+
+  &--small {
+    height: 24px;
+    font-size: 12px;
+  }
+
+  &--large {
+    height: 40px;
+    font-size: 16px;
+  }
+
+  &--disabled {
+    background-color: $--input-background-color-disabled;
+    border: 1px solid $--input-border-color-disabled;
+
+    &::placeholder {
+      color: $--input-placeholder-color-disabled;
+    }
+  }
+}
