@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import './modal.scss';
 
@@ -15,8 +15,6 @@ export const Modal: React.FC<ModalProps> = ({
   onClose,
   className
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-
   const classes = classnames(
     'Modal',
     {
@@ -26,16 +24,12 @@ export const Modal: React.FC<ModalProps> = ({
   );
 
   const handleOutsideClick = (e) => {
-    e.preventDefault()
-
-    if (ref.current === e.target) {
-      onClose?.()
-    }
+    onClose?.()
   }
 
   return (
-    <div className='ModalOverlay' onClick={handleOutsideClick} ref={ref}>
-      <div className={classes}> {children}</div >
+    <div className='ModalOverlay' onClick={handleOutsideClick} >
+      <div className={classes} onClick={(e) => { e.stopPropagation() }}> {children} </div >
     </div>
   );
 }
