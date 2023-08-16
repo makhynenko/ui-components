@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { Checkbox } from './Checkbox'
 import { useState } from 'react';
 
-storiesOf('Input', module)
+storiesOf('Checkbox', module)
   .add('Default', () => {
     const [value, setValue] = useState<boolean>(false);
 
@@ -25,7 +25,8 @@ storiesOf('Input', module)
         <Checkbox label="Lorem ipsum" onChange={onChange} />
 
         <p>Small</p>
-        <Checkbox size="small" disabled />
+        <Checkbox size="small" disabled value={true} label="Lorem ipsum 1111"/>
+
         <Checkbox size="small" disabled value={false} />
         <Checkbox size="small" disabled value={true} />
         <br />
@@ -90,7 +91,6 @@ storiesOf('Input', module)
         <Checkbox size="large" label="Lorem ipsum" onChange={onChange} value={value} />
         <br />
         <Checkbox size="large" label="Lorem ipsum" onChange={onChange} />
-
       </>
     )
   })

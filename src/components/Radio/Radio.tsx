@@ -44,6 +44,17 @@ export const Radio: React.FC<RadioProps> = ({
       'RadioLabel--small': size === 'small',
       'RadioLabel--medium': size === 'medium',
       'RadioLabel--large': size === 'large',
+      'RadioLabel--disabled': disabled,
+    }
+  )
+
+  const checkmarkRadioClasses = classnames(
+    'CheckmarkRadio',
+    {
+      'CheckmarkRadio--small': size === 'small',
+      'CheckmarkRadio--medium': size === 'medium',
+      'CheckmarkRadio--large': size === 'large',
+      'CheckmarkRadio--disabled': disabled,
     }
   )
 
@@ -62,6 +73,7 @@ export const Radio: React.FC<RadioProps> = ({
         type='radio'
         checked={typeof value === 'boolean' ? value : checked}
         onChange={onChangeHandler} />
+      <span className={checkmarkRadioClasses}></span>
       {label ? <span className='radioLabelText'>{label}</span> : null}
     </label>
   );
