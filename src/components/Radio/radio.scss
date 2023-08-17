@@ -2,6 +2,7 @@ $--radio-background-color-checked: #3E7BFA;
 $--radio-border-color: #3E7BFA;
 $--radio-background-color-disabled-checked: rgba(62, 123, 250, 0.4);
 $--radio-border-color-disabled: rgba(62, 123, 250, 0.4);
+$--radio-checkmark-color: #FFFFFF;
 
 .RadioLabel {
   display: flex;
@@ -50,7 +51,7 @@ $--radio-border-color-disabled: rgba(62, 123, 250, 0.4);
   }
 
   &:hover input~.CheckmarkRadio {
-    background-color: white;
+    background-color: $--radio-checkmark-color;
   }
 
   & input:checked~.CheckmarkRadio {
@@ -72,7 +73,7 @@ $--radio-border-color-disabled: rgba(62, 123, 250, 0.4);
     left: 0;
     height: 18px;
     width: 18px;
-    background-color: #FFFF;
+    background-color: $--radio-checkmark-color;
     margin: 0 4px;
     border: 1px solid $--radio-border-color;
     border-radius: 50%;
@@ -103,9 +104,9 @@ $--radio-border-color-disabled: rgba(62, 123, 250, 0.4);
     top: 4px;
     width: 6px;
     height: 6px;
-    border: 1px solid white;
+    border: 1px solid $--radio-checkmark-color;
     border-radius: 50%;
-    background-color: #FFFF;
+    background-color: $--radio-checkmark-color;
   }
 
   .CheckmarkRadio--small:after {
