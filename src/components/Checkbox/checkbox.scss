@@ -2,7 +2,7 @@ $--checkbox-background-color-checked: #3E7BFA;
 $--checkbox-border-color: #3E7BFA;
 $--checkbox-background-color-disabled-checked: rgba(62, 123, 250, 0.4);
 $--checkbox-border-color-disabled: rgba(62, 123, 250, 0.4);
-$--checkbox-checkmark-color: #FFFFFF;
+$--checkbox-checkmark-color: #FFF;
 
 .CheckboxLabel {
   display: flex;
@@ -10,7 +10,6 @@ $--checkbox-checkmark-color: #FFFFFF;
   position: relative;
   padding-left: 24px;
   cursor: pointer;
-  font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -45,22 +44,22 @@ $--checkbox-checkmark-color: #FFFFFF;
     height: 0;
     width: 0;
 
-    &:checked~.Checkmark:after {
+    &:checked ~ .Checkmark::after {
       display: block;
     }
   }
 
-  &:hover input~.Checkmark {
+  &:hover input ~ .Checkmark {
     background-color: $--checkbox-checkmark-color;
   }
 
-  & input:checked~.Checkmark {
+  & input:checked ~ .Checkmark {
     background-color: $--checkbox-background-color-checked;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
   }
 
-  & input:checked:disabled~.Checkmark {
+  & input:checked:disabled ~ .Checkmark {
     background-color: $--checkbox-background-color-disabled-checked;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
@@ -78,7 +77,7 @@ $--checkbox-checkmark-color: #FFFFFF;
     border: 1px solid $--checkbox-background-color-checked;
     border-radius: 4px;
 
-    &:after {
+    &::after {
       content: "";
       position: absolute;
       display: none;
@@ -99,7 +98,7 @@ $--checkbox-checkmark-color: #FFFFFF;
     }
   }
 
-  .Checkmark:after {
+  .Checkmark::after {
     left: 5px;
     top: 2px;
     width: 4px;
@@ -111,14 +110,14 @@ $--checkbox-checkmark-color: #FFFFFF;
     transform: rotate(45deg);
   }
 
-  .Checkmark--small:after {
+  .Checkmark--small::after {
     left: 3px;
     top: 1px;
     width: 4px;
     height: 6px;
   }
 
-  .Checkmark--large:after {
+  .Checkmark--large::after {
     left: 6px;
     top: 1px;
     width: 6px;
