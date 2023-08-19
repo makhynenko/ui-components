@@ -98,18 +98,18 @@ $--radio-checkmark-color: #FFF;
     height: 0;
     width: 0;
 
-    &:checked~.CheckmarkRadio::after {
+    &:checked ~ .CheckmarkRadio::after {
       display: block;
     }
   }
 
-  & input:checked~.CheckmarkRadio {
+  & input:checked ~ .CheckmarkRadio {
     background-color: $--radio-background-color-checked;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
   }
 
-  & input:checked:disabled~.CheckmarkRadio {
+  & input:checked:disabled ~ .CheckmarkRadio {
     background-color: $--radio-background-color-disabled-checked;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
