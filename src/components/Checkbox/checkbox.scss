@@ -37,6 +37,62 @@ $--checkbox-checkmark-color: #FFF;
     pointer-events: none;
   }
 
+  .Checkmark {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: $--checkbox-checkmark-color;
+    margin: 0 4px;
+    border: 1px solid $--checkbox-background-color-checked;
+    border-radius: 4px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 5px;
+      top: 2px;
+      width: 4px;
+      height: 8px;
+      border: solid $--checkbox-checkmark-color;
+      border-width: 0 2px 2px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+
+    &--small {
+      height: 14px;
+      width: 14px;
+
+      &::after {
+        left: 3px;
+        top: 1px;
+        width: 4px;
+        height: 6px;
+      }
+    }
+
+    &--large {
+      height: 22px;
+      width: 22px;
+
+      &::after {
+        left: 6px;
+        top: 1px;
+        width: 6px;
+        height: 12px;
+      }
+    }
+
+    &--disabled {
+      border: 1px solid $--checkbox-border-color-disabled;
+    }
+  }
+
   .Checkbox {
     position: absolute;
     opacity: 0;
@@ -63,64 +119,5 @@ $--checkbox-checkmark-color: #FFF;
     background-color: $--checkbox-background-color-disabled-checked;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
-  }
-
-  .Checkmark {
-    box-sizing: border-box;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 18px;
-    width: 18px;
-    background-color: $--checkbox-checkmark-color;
-    margin: 0 4px;
-    border: 1px solid $--checkbox-background-color-checked;
-    border-radius: 4px;
-
-    &::after {
-      content: "";
-      position: absolute;
-      display: none;
-    }
-
-    &--small {
-      height: 14px;
-      width: 14px;
-    }
-
-    &--large {
-      height: 22px;
-      width: 22px;
-    }
-
-    &--disabled {
-      border: 1px solid $--checkbox-border-color-disabled;
-    }
-  }
-
-  .Checkmark::after {
-    left: 5px;
-    top: 2px;
-    width: 4px;
-    height: 8px;
-    border: solid $--checkbox-checkmark-color;
-    border-width: 0 2px 2px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-
-  .Checkmark--small::after {
-    left: 3px;
-    top: 1px;
-    width: 4px;
-    height: 6px;
-  }
-
-  .Checkmark--large::after {
-    left: 6px;
-    top: 1px;
-    width: 6px;
-    height: 12px;
   }
 }
