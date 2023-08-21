@@ -13,15 +13,17 @@ storiesOf('CheckboxGroup', module)
 
     const selectedValuesExample = [];
 
-    const [updatedArray, setUpdatedArray] = useState(selectedValuesExample)
+    const [selectedValues, setSelectedValues] = useState(selectedValuesExample)
 
-    const updateSelectedValues = (selectedValues) => {
-      setUpdatedArray(selectedValues)
+    const onSelect = (selectedValues) => {
+      setSelectedValues(selectedValues)
     }
 
     return (
       <>
-        <CheckboxGroup options={optionsExample} selectedValues={updatedArray} onSelect={updateSelectedValues} size='large' />
+        <CheckboxGroup options={optionsExample} selectedValues={selectedValues} onSelect={onSelect} size='small' />
+        <CheckboxGroup options={optionsExample} selectedValues={selectedValues} onSelect={onSelect} />
+        <CheckboxGroup options={optionsExample} selectedValues={selectedValues} onSelect={onSelect} size='large' />
       </>
     )
   })
