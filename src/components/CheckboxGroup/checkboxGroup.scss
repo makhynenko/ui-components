@@ -1,0 +1,10 @@
+.checkboxGroup {
+  display: flex;
+  padding: 0;
+  margin: 0;
+
+  .checkboxItem {
+    list-style: none;
+    margin: 4px;
+  }
+}
