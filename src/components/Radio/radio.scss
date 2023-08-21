@@ -1,71 +1,117 @@
-$--checkbox-background-color-checked: #3E7BFA;
-$--checkbox-border-color: #3E7BFA;
+$--radio-background-color-checked: #3E7BFA;
+$--radio-border-color: #3E7BFA;
+$--radio-background-color-disabled-checked: rgba(62, 123, 250, 0.4);
+$--radio-border-color-disabled: rgba(62, 123, 250, 0.4);
+$--radio-checkmark-color: #FFF;
 
 .RadioLabel {
-  line-height: 16px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 24px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  height: 18px;
+  font-size: 14px;
 
   &:focus-visible {
     outline: none;
   }
 
   &--small {
-    line-height: 14px;
+    padding-left: 22px;
+    height: 14px;
+    font-size: 12px;
   }
 
   &--large {
-    line-height: 20px;
+    padding-left: 28px;
+    height: 22px;
+    font-size: 16px;
   }
 
-  .Radio {
-    cursor: pointer;
+  &--disabled {
+    pointer-events: none;
+  }
+
+  .CheckmarkRadio {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: $--radio-checkmark-color;
     margin: 0 4px;
-    height: 16px;
-    width: 16px;
-    vertical-align: middle;
-    appearance: none;
-    -webkit-appearance: none;
+    border: 1px solid $--radio-border-color;
+    border-radius: 50%;
 
-    &[type=radio] {
-      border: 1px solid $--checkbox-border-color;
+    &::after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 4px;
+      top: 4px;
+      width: 6px;
+      height: 6px;
+      border: 1px solid $--radio-checkmark-color;
       border-radius: 50%;
-
-      &.Radio--disabled {
-        appearance: radio;
-        -webkit-appearance: radio;
-      }
-    }
-
-    &[type=radio]:checked {
-      appearance: radio;
-      -webkit-appearance: radio;
-      accent-color: $--checkbox-background-color-checked;
-    }
-
-    +.radioLabelText {
-      font-size: 14px;
-      vertical-align: middle;
-    }
-
-    &--disabled {
-      pointer-events: none;
+      background-color: $--radio-checkmark-color;
     }
 
     &--small {
       height: 14px;
       width: 14px;
 
-      +.radioLabelText {
-        font-size: 12px;
+      &::after {
+        left: 3px;
+        top: 3px;
+        width: 4px;
+        height: 4px;
       }
     }
 
     &--large {
-      height: 20px;
-      width: 20px;
+      height: 22px;
+      width: 22px;
 
-      +.radioLabelText {
-        font-size: 16px;
+      &::after {
+        left: 5px;
+        top: 5px;
+        width: 8px;
+        height: 8px;
       }
     }
+
+    &--disabled {
+      border: 1px solid $--radio-border-color-disabled;
+    }
+  }
+
+  .Radio {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:checked ~ .CheckmarkRadio::after {
+      display: block;
+    }
+  }
+
+  & input:checked ~ .CheckmarkRadio {
+    background-color: $--radio-background-color-checked;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+  }
+
+  & input:checked:disabled ~ .CheckmarkRadio {
+    background-color: $--radio-background-color-disabled-checked;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
   }
 }

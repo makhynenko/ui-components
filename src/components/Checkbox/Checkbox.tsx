@@ -44,6 +44,17 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       'CheckboxLabel--small': size === 'small',
       'CheckboxLabel--medium': size === 'medium',
       'CheckboxLabel--large': size === 'large',
+      'CheckboxLabel--disabled': disabled,
+    }
+  )
+
+  const checkmarkClasses = classnames(
+    'Checkmark',
+    {
+      'Checkmark--small': size === 'small',
+      'Checkmark--medium': size === 'medium',
+      'Checkmark--large': size === 'large',
+      'Checkmark--disabled': disabled,
     }
   )
 
@@ -61,6 +72,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         type='checkbox'
         checked={typeof value === 'boolean' ? value : checked}
         onChange={onChangeHandler} />
+      <span className={checkmarkClasses}></span>
       {label ? <span className='checkboxLabelText'>{label}</span> : null}
     </label>
   );
