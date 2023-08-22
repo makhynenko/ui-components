@@ -59,7 +59,6 @@ export const Radio: React.FC<RadioProps> = ({
   )
 
   const onChangeHandler = (e) => {
-    console.log(e.target.checked, 'sssssss')
     setChecked(e.target.checked)
     onChange?.(e.target.checked)
   }
