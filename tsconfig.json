@@ -5,7 +5,10 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "jsx": "react",
-    "lib": ["dom", "es5"],
+    "lib": [
+      "dom",
+      "es5"
+    ],
     "module": "esNext",
     "moduleResolution": "node",
     "noImplicitAny": false,
@@ -18,6 +21,11 @@
     "strict": true,
     "target": "es5"
   },
-  "exclude": ["node_modules",],
-  "include": ["./src"]
+  "exclude": [
+    "node_modules",
+  ],
+  "include": [
+    "./src",
+    "custom.d.ts"
+  ]
 }
