@@ -17,7 +17,7 @@ storiesOf('Modal', module)
 
     return (
       <>
-        <Button onClick={openModal}>{'Open modal'}</Button>
+        <Button onClick={openModal}>Open modal</Button>
         {isOpen
           ? <Modal isOpen={isOpen} onClose={closeModal}>
             <Button size='small' onClick={closeModal}>Close</Button>
