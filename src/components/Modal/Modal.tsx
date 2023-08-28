@@ -29,7 +29,7 @@ export const Modal: React.FC<ModalProps> = ({
 
   return (
     <div className='ModalOverlay' onClick={handleOutsideClick} >
-      <div className={classes} onClick={(e) => { e.stopPropagation() }}> {children} </div >
+      <div className={classes} onClick={(e) => { e.stopPropagation() }}>{children}</div >
     </div>
   );
 }
