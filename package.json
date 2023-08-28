@@ -6,6 +6,9 @@
   "description": "React Components Library",
   "author": "Oleksandr Makhynenko",
   "homepage": "https://github.com/makhynenko/ui-components",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "yarn clean; rollup -c",
     "clean": "rimraf dist",
