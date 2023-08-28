@@ -1,18 +1,11 @@
 {
-  "name": "sixfootsixdesigns-react-library-boilerplate",
+  "name": "@makhynenko/ui-components",
   "license": "MIT",
   "version": "0.0.0",
   "private": false,
-  "description": "React Typescript Library Boilerplate",
-  "author": "James Olson",
-  "homepage": "https://github.com/sixfootsixdesigns/React-Library-Boilerplate",
-  "bugs": {
-    "url": "https://github.com/sixfootsixdesigns/React-Library-Boilerplate/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sixfootsixdesigns/React-Library-Boilerplate.git"
-  },
+  "description": "React Components Library",
+  "author": "Oleksandr Makhynenko",
+  "homepage": "https://github.com/makhynenko/ui-components",
   "scripts": {
     "build": "yarn clean; rollup -c",
     "clean": "rimraf dist",
