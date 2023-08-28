@@ -24,7 +24,13 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
     <ul className={classnames('radioGroup', className)}>
       {options.map((el) => (
         <li className='radioItem' key={el.value}>
-          <Radio label={el.label} disabled={el.disabled} size={size} onChange={handleRadioChange(el.value)} value={selectedValue === el.value} />
+          <Radio
+            label={el.label}
+            disabled={el.disabled}
+            size={size}
+            onChange={handleRadioChange(el.value)}
+            value={selectedValue === el.value}
+          />
         </li>
       ))}
     </ul>
