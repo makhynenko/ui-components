@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://github.com/makhynenko/ui-components/compare/v1.0.0...v1.0.1) (2023-08-28)
+
+
+### Performance Improvements
+
+* force publish ([d3cda1d](https://github.com/makhynenko/ui-components/commit/d3cda1d977527c7f33a7e7bad7cf51f604afc971))
+
 ## 1.0.0 (2023-08-28)
 
 
