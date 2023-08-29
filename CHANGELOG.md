@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.5](https://github.com/makhynenko/ui-components/compare/v1.0.4...v1.0.5) (2023-08-29)
+
+
+### Bug Fixes
+
+* upgrade react ([#10](https://github.com/makhynenko/ui-components/issues/10)) ([59ced46](https://github.com/makhynenko/ui-components/commit/59ced468f78919b132bc8c9711ba3b01e5c95502))
+
 ### [1.0.4](https://github.com/makhynenko/ui-components/compare/v1.0.3...v1.0.4) (2023-08-28)
 
 
