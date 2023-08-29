@@ -25,7 +25,21 @@ export default {
   plugins: [
     resolve(),
     commonjs(),
-    postcss(),
+    postcss({
+      autoModules: true,
+      // extract into single file
+      extract: 'styles/components.scss',
+      sourceMap: true,
+      minimize: true,
+      modules: {
+        // ref: https://github.com/madyankin/postcss-modules
+        generateScopedName: (className, filename) => {
+          const file = path.basename(filename).replace('.scss', '');
+
+          return `ui-${file}-${className}`;
+        },
+      },
+    }),
     typescript({
       typescript: ts,
       tsconfig: 'tsconfig.json',
