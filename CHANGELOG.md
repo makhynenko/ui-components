@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.6](https://github.com/makhynenko/ui-components/compare/v1.0.5...v1.0.6) (2023-08-29)
+
+
+### Bug Fixes
+
+* styles ([7e9ec86](https://github.com/makhynenko/ui-components/commit/7e9ec865b761a1cb26dabcd894f2eeaa1b83ead7))
+
 ### [1.0.5](https://github.com/makhynenko/ui-components/compare/v1.0.4...v1.0.5) (2023-08-29)
 
 
