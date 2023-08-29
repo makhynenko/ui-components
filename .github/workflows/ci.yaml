@@ -16,15 +16,15 @@ jobs:
           cache-name: cache-node-modules
         with:
           path: node_modules
-          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies
-        run: yarn install
+        run: npm install
       - name: Lint code
-        run: yarn lint
+        run: npm run lint
       - name: Test code with coverage
-        run: yarn test:coverage
+        run: npm run test:coverage
       - name: Build
-        run: yarn build
+        run: npm run build
 
   publish:
     if: ${{ github.ref == 'refs/heads/master' }}
@@ -43,11 +43,11 @@ jobs:
           cache-name: cache-node-modules
         with:
           path: node_modules
-          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies
-        run: yarn install
+        run: npm install
       - name: Build
-        run: yarn build
+        run: npm run build
       - name: Release
         env: 
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
