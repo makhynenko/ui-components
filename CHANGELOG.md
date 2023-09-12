@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/makhynenko/ui-components/compare/v1.0.6...v1.1.0) (2023-09-12)
+
+
+### Features
+
+* icons comp ([eef7f83](https://github.com/makhynenko/ui-components/commit/eef7f8335c3abff36b5981ce921d0ea75a16f556))
+
 ### [1.0.6](https://github.com/makhynenko/ui-components/compare/v1.0.5...v1.0.6) (2023-08-29)
 
 
