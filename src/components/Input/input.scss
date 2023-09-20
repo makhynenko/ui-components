@@ -28,15 +28,23 @@ $--input-icon-color-active: #3E7BFA;
       color: $--input-placeholder-color;
     }
 
+    ~.Icon {
+      margin: auto 0;
+      position: absolute;
+      top: 0;
+      bottom: 0;
 
-    &:focus {
-      border: 1px solid $--input-border-color-active;
-      outline: none;
+      &--prefix {
+        left: 8px;
+      }
 
-      ~.Icon {
-        path {
-          stroke: $--input-icon-color-active;
-        }
+      path {
+        stroke: $--input-icon-color;
+      }
+
+      &--clearable {
+        right: 8px;
+        cursor: pointer;
       }
     }
 
@@ -47,6 +55,17 @@ $--input-icon-color-active: #3E7BFA;
       ~.Icon {
         path {
           stroke: $--input-icon-color-invalid;
+        }
+      }
+    }
+
+    &:focus {
+      border: 1px solid $--input-border-color-active;
+      outline: none;
+
+      ~.Icon {
+        path {
+          stroke: $--input-icon-color-active;
         }
       }
     }
@@ -96,26 +115,6 @@ $--input-icon-color-active: #3E7BFA;
 
     &--clearable {
       padding-right: 28px;
-    }
-  }
-
-  .Icon {
-    margin: auto 0;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-
-    &--prefix {
-      left: 8px;
-    }
-
-    path {
-      stroke: $--input-icon-color;
-    }
-
-    &--clearable {
-      right: 8px;
-      cursor: pointer;
     }
   }
 }
