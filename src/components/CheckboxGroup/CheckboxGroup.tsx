@@ -1,7 +1,7 @@
 import React from 'react';
-import './checkboxGroup.scss';
 import { Option, Size } from '../../types';
 import { Checkbox } from '../Checkbox/Checkbox';
+import './checkboxGroup.scss';
 import classnames from 'classnames';
 
 export interface CheckboxGroupProps {

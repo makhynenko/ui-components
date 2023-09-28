@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import './button.scss';
+import styles from './button.module.scss';
 
 export interface ButtonProps {
   size?: 'small' | 'medium' | 'large';
@@ -9,22 +9,28 @@ export interface ButtonProps {
 }
 
 export const Button: React.FC<ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>> = ({
-  disabled, size, variant, className, ...props
+  disabled,
+  size,
+  variant,
+  className,
+  ...props
 }) => {
   const classes = classnames(
-    'Button',
+    styles.Button,
     {
-      'Button--disabled': disabled,
-      'Button--small': size === 'small',
-      'Button--medium': size === 'medium',
-      'Button--large': size === 'large',
-      'Button--primary': variant === 'primary',
-      'Button--secondary': variant === 'secondary'
+      [styles['Button--disabled']]: disabled,
+      [styles['Button--small']]: size === 'small',
+      [styles['Button--medium']]: size === 'medium',
+      [styles['Button--large']]: size === 'large',
+      [styles['Button--primary']]: variant === 'primary',
+      [styles['Button--secondary']]: variant === 'secondary',
     },
     className
   );
 
   return (
-    <button {...props} className={classes} disabled={disabled}>{props.children}</button>
+    <button {...props} className={classes} disabled={disabled}>
+      {props.children}
+    </button>
   );
-}
+};
