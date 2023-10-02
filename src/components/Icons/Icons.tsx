@@ -1,5 +1,4 @@
 import React from 'react';
-import style from './icons.module.scss';
 import { IconProps, IconName } from './types';
 import BurgerIcon from './IconsCollection/BurgerIcon';
 import AlertCircleIcon from './IconsCollection/AlertCircleIcon';
@@ -66,7 +65,7 @@ import CrossCircleIcon from './IconsCollection/CrossCircleIcon';
 import CrossIcon from './IconsCollection/CrossIcon';
 
 export interface IconsProps extends IconProps {
-  name: IconName
+  name: IconName;
 }
 
 const iconsMap = {
@@ -122,7 +121,7 @@ const iconsMap = {
   moreVertical: MoreVerticalIcon,
   paperclip: PaperclipIcon,
   phone: PhoneIcon,
-  plusCircle:PlusCircleIcon,
+  plusCircle: PlusCircleIcon,
   plus: PlusIcon,
   search: SearchIcon,
   settings: SettingsIcon,
@@ -133,12 +132,10 @@ const iconsMap = {
   user: UserIcon,
   crossCircle: CrossCircleIcon,
   cross: CrossIcon,
-}
+};
 
 export const Icons: React.FC<IconsProps> = ({ name, ...props }) => {
-  const Component = iconsMap[name]
+  const Component = iconsMap[name];
 
-  return (
-    <Component {...props} />
-  );
-}
+  return <Component {...props} />;
+};
