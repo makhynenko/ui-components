@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/makhynenko/ui-components/compare/v1.1.0...v1.2.0) (2023-10-02)
+
+
+### Features
+
+* css modules ([#13](https://github.com/makhynenko/ui-components/issues/13)) ([05b6083](https://github.com/makhynenko/ui-components/commit/05b6083d5e8c68d272abed0b62774e3695f680a1))
+
 ## [1.1.0](https://github.com/makhynenko/ui-components/compare/v1.0.6...v1.1.0) (2023-09-12)
 
 
