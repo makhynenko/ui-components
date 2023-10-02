@@ -1,5 +1,5 @@
 import React from 'react';
-import './icons.scss';
+import style from './icons.module.scss';
 import { IconProps, IconName } from './types';
 import BurgerIcon from './IconsCollection/BurgerIcon';
 import AlertCircleIcon from './IconsCollection/AlertCircleIcon';
