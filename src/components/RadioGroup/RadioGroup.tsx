@@ -1,8 +1,8 @@
 import React from 'react';
-import './radioGroup.scss';
 import { Option, Size } from '../../types';
 import { Radio } from '../Radio/Radio';
 import classnames from 'classnames';
+import style from './radioGroup.module.scss';
 
 export interface RadioGroupProps {
   size?: Size,
@@ -22,9 +22,9 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
   }
 
   return (
-    <ul className={classnames('radioGroup', className)}>
+    <ul className={classnames(style.radioGroup, className)}>
       {options.map((el) => (
-        <li className='radioItem' key={el.value}>
+        <li className={style.radioItem} key={el.value}>
           <Radio
             label={el.label}
             disabled={el.disabled}

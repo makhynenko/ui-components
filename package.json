@@ -10,7 +10,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "yarn clean; rollup -c",
+    "build": "rollup -c",
     "clean": "rimraf dist",
     "dev": "npm run storybook",
     "format": "prettier --write \"src/**/*.{ts,tsx,json,js,jsx}\"",
@@ -69,6 +69,7 @@
     "hygen": "^6.0.4",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
+    "path": "^0.12.7",
     "prettier": "^2.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
