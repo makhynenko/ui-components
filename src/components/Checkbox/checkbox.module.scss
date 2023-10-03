@@ -53,8 +53,8 @@ $--checkbox-checkmark-color: #FFF;
       content: "";
       position: absolute;
       display: none;
-      left: 5px;
-      top: 2px;
+      top: 15%;
+      left: 32%;
       width: 4px;
       height: 8px;
       border: solid $--checkbox-checkmark-color;
@@ -69,8 +69,8 @@ $--checkbox-checkmark-color: #FFF;
       width: 14px;
 
       &::after {
-        left: 3px;
-        top: 1px;
+        top: 11%;
+        left: 31%;
         width: 4px;
         height: 6px;
       }
@@ -81,8 +81,8 @@ $--checkbox-checkmark-color: #FFF;
       width: 22px;
 
       &::after {
-        left: 6px;
-        top: 1px;
+        top: 5%;
+        left: 33%;
         width: 6px;
         height: 12px;
       }
