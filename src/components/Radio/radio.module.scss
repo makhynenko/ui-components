@@ -53,8 +53,9 @@ $--radio-checkmark-color: #FFF;
       content: "";
       position: absolute;
       display: none;
-      left: 4px;
-      top: 4px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       width: 6px;
       height: 6px;
       border: 1px solid $--radio-checkmark-color;
@@ -67,8 +68,6 @@ $--radio-checkmark-color: #FFF;
       width: 14px;
 
       &::after {
-        left: 3px;
-        top: 3px;
         width: 4px;
         height: 4px;
       }
@@ -79,8 +78,6 @@ $--radio-checkmark-color: #FFF;
       width: 22px;
 
       &::after {
-        left: 5px;
-        top: 5px;
         width: 8px;
         height: 8px;
       }
