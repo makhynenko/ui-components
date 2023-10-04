@@ -82,13 +82,13 @@ export const Popover: React.FC<PopoverProps> = ({
               className='popover-arrow-container'
               arrowClassName='popover-arrow PopoverArrow'
             >
-              <div className={styles.PopoverWrapper} style={{ backgroundColor: backgroundColor, color: '#FFF' }}>
+              <div className={styles.PopoverWrapper} style={{ backgroundColor: backgroundcolor, color: '#FFF' }}>
                 {content}
               </div>
             </ArrowContainer>)
         } else {
           return (
-            <div className={styles.PopoverWrapper} style={{ backgroundColor: backgroundColor, color: '#FFF' }}>
+            <div className={styles.PopoverWrapper} style={{ backgroundColor: backgroundcolor, color: '#FFF' }}>
               {content}
             </div>
           )
