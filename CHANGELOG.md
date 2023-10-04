@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.2.1](https://github.com/makhynenko/ui-components/compare/v1.2.0...v1.2.1) (2023-10-04)
+
+
+### Bug Fixes
+
+* change styles for radio and checkbox ([#14](https://github.com/makhynenko/ui-components/issues/14)) ([73a5b48](https://github.com/makhynenko/ui-components/commit/73a5b4859ef107ebc57e8c3f40d5cb5b589dd8e1))
+
 ## [1.2.0](https://github.com/makhynenko/ui-components/compare/v1.1.0...v1.2.0) (2023-10-02)
 
 
