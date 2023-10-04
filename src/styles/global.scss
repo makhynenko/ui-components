@@ -1,49 +1,45 @@
 :root {
   //variables for button component
-  --button-primary-background: #3e7bfa;
-  --button-primary-border-color: #3e7bfa;
-  --button-primary-background-hover: #386fe1;
-  --button-primary-border-hover-color: #386fe1;
-  --button-primary-background-active: #3569d4;
-  --button-primary-border-active-color: #3569d4;
-  --button-primary-text-color: #f9fbff;
-
-  --button-secondary-background: #f3f8ff;
-  --button-secondary-background-hover: #e7f1ff;
-  --button-secondary-background-active: #dbeaff;
-  --button-secondary-text-color: #3e7bfa;
-  --button-secondary-border-color: #3e7bfa;
+  --button-primary-background: #3E7BFA;
+  --button-primary-border-color: #3E7BFA;
+  --button-primary-background-hover: #386FE1;
+  --button-primary-border-hover-color: #386FE1;
+  --button-primary-background-active: #3569D4;
+  --button-primary-border-active-color: #3569D4;
+  --button-primary-text-color: #F9FBFF;
+  --button-secondary-background: #F3F8FF;
+  --button-secondary-background-hover: #E7F1FF;
+  --button-secondary-background-active: #DBEAFF;
+  --button-secondary-text-color: #3E7BFA;
+  --button-secondary-border-color: #3E7BFA;
 
   //variables for button checkbox component
-  --checkbox-background-color-checked: #3e7bfa;
-  --checkbox-border-color: #3e7bfa;
+  --checkbox-background-color-checked: #3E7BFA;
+  --checkbox-border-color: #3E7BFA;
   --checkbox-background-color-disabled-checked: rgba(62, 123, 250, 0.4);
   --checkbox-border-color-disabled: rgba(62, 123, 250, 0.4);
-  --checkbox-checkmark-color: #fff;
+  --checkbox-checkmark-color: #FFF;
 
   //variables for button input component
-  --input-border-color: #eaeaec;
-  --input-placeholder-color: #a6a7ba;
-
-  --input-border-color-active: #3e7bfa;
-  --input-border-color-invalid: #fe7374;
-
-  --input-background-color-disabled: #f1f2f5;
-  --input-border-color-disabled: #f3f3f5;
-  --input-placeholder-color-disabled: #a5a6b9;
-
-  --input-icon-color: #a6a7ba;
-  --input-icon-color-invalid: #fe7374;
-  --input-icon-color-active: #3e7bfa;
+  --input-border-color: #EAEAEC;
+  --input-placeholder-color: #A6A7BA;
+  --input-border-color-active: #3E7BFA;
+  --input-border-color-invalid: #FE7374;
+  --input-background-color-disabled: #F1F2F5;
+  --input-border-color-disabled: #F3F3F5;
+  --input-placeholder-color-disabled: #A5A6B9;
+  --input-icon-color: #A6A7BA;
+  --input-icon-color-invalid: #FE7374;
+  --input-icon-color-active: #3E7BFA;
 
   //variables for button modal component
-  --modal-overlay-background-color: #a5a6b985;
-  --modal-background-color: #fff;
+  --modal-overlay-background-color: #A5A6B985;
+  --modal-background-color: #FFF;
 
   //variables for button radio component
-  --radio-background-color-checked: #3e7bfa;
-  --radio-border-color: #3e7bfa;
+  --radio-background-color-checked: #3E7BFA;
+  --radio-border-color: #3E7BFA;
   --radio-background-color-disabled-checked: rgba(62, 123, 250, 0.4);
   --radio-border-color-disabled: rgba(62, 123, 250, 0.4);
-  --radio-checkmark-color: #fff;
+  --radio-checkmark-color: #FFF;
 }
