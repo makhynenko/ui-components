@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.2.2](https://github.com/makhynenko/ui-components/compare/v1.2.1...v1.2.2) (2023-10-05)
+
+
+### Bug Fixes
+
+* add css global variables instead of scss variables ([#16](https://github.com/makhynenko/ui-components/issues/16)) ([0df9dec](https://github.com/makhynenko/ui-components/commit/0df9dec4a0f08c76779b5b40def0ed583f16f735))
+
 ### [1.2.1](https://github.com/makhynenko/ui-components/compare/v1.2.0...v1.2.1) (2023-10-04)
 
 
