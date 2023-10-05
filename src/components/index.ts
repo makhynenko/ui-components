@@ -7,3 +7,5 @@ export * from './CheckboxGroup'
 export * from './RadioGroup'
 export * from './Icons'
 
+export * from './Popover'
+
