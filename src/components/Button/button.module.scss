@@ -1,35 +1,21 @@
-$--button-primary-background: #3E7BFA;
-$--button-primary-border-color: #3E7BFA;
-$--button-primary-background-hover: #386FE1;
-$--button-primary-border-hover-color: #386FE1;
-$--button-primary-background-active: #3569D4;
-$--button-primary-border-active-color: #3569D4;
-$--button-primary-text-color: #F9FBFF;
-
-$--button-secondary-background: #F3F8FF;
-$--button-secondary-background-hover: #E7F1FF;
-$--button-secondary-background-active: #DBEAFF;
-$--button-secondary-text-color: #3E7BFA;
-$--button-secondary-border-color: #3E7BFA;
-
 .Button {
-  border: 1px solid $--button-primary-background;
+  border: 1px solid var(--button-primary-background);
   border-radius: 4px;
-  color: $--button-primary-text-color;
+  color: var(--button-primary-text-color);
   padding: 0 24px;
   height: 32px;
   font-size: 14px;
-  background-color: $--button-primary-background;
+  background-color: var(--button-primary-background);
   cursor: pointer;
 
   &:hover {
-    background-color: $--button-primary-background-hover;
-    border-color: $--button-primary-border-hover-color;
+    background-color: var(--button-primary-background-hover);
+    border-color: var(--button-primary-border-hover-color);
   }
 
   &:active {
-    background-color: $--button-primary-background-active;
-    border-color: $--button-primary-border-active-color;
+    background-color: var(--button-primary-background-active);
+    border-color: var(--button-primary-border-active-color);
   }
 
   &.Button--small {
@@ -43,16 +29,16 @@ $--button-secondary-border-color: #3E7BFA;
   }
 
   &.Button--secondary {
-    background-color: $--button-secondary-background;
-    color: $--button-secondary-text-color;
-    border-color: $--button-secondary-border-color;
+    background-color: var(--button-secondary-background);
+    color: var(--button-secondary-text-color);
+    border-color: var(--button-secondary-border-color);
 
     &:hover {
-      background-color: $--button-secondary-background-hover;
+      background-color: var(--button-secondary-background-hover);
     }
 
     &:active {
-      background-color: $--button-secondary-background-active;
+      background-color: var(--button-secondary-background-active);
     }
   }
 

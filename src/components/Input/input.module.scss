@@ -1,34 +1,20 @@
-$--input-border-color: #EAEAEC;
-$--input-placeholder-color: #A6A7BA;
-
-$--input-border-color-active: #3E7BFA;
-$--input-border-color-invalid: #FE7374;
-
-$--input-background-color-disabled: #F1F2F5;
-$--input-border-color-disabled: #F3F3F5;
-$--input-placeholder-color-disabled: #A5A6B9;
-
-$--input-icon-color: #A6A7BA;
-$--input-icon-color-invalid: #FE7374;
-$--input-icon-color-active: #3E7BFA;
-
 .InputWrapper {
   display: inline-block;
   position: relative;
   height: fit-content;
 
   .Input {
-    border: 1px solid $--input-border-color;
+    border: 1px solid var(--input-border-color);
     border-radius: 4px;
     padding: 0 8px;
     height: 32px;
     font-size: 14px;
 
     &::placeholder {
-      color: $--input-placeholder-color;
+      color: var(--input-placeholder-color);
     }
 
-    ~.Icon {
+    ~ .Icon {
       margin: auto 0;
       position: absolute;
       top: 0;
@@ -39,7 +25,7 @@ $--input-icon-color-active: #3E7BFA;
       }
 
       path {
-        stroke: $--input-icon-color;
+        stroke: var(--input-icon-color);
       }
 
       &--clearable {
@@ -49,23 +35,23 @@ $--input-icon-color-active: #3E7BFA;
     }
 
     &--invalid {
-      border: 1px solid $--input-border-color-invalid;
+      border: 1px solid var(--input-border-color-invalid);
       outline: none;
 
-      ~.Icon {
+      ~ .Icon {
         path {
-          stroke: $--input-icon-color-invalid;
+          stroke: var(--input-icon-color-invalid);
         }
       }
     }
 
     &:focus {
-      border: 1px solid $--input-border-color-active;
+      border: 1px solid var(--input-border-color-active);
       outline: none;
 
-      ~.Icon {
+      ~ .Icon {
         path {
-          stroke: $--input-icon-color-active;
+          stroke: var(--input-icon-color-active);
         }
       }
     }
@@ -97,15 +83,15 @@ $--input-icon-color-active: #3E7BFA;
     }
 
     &--disabled {
-      background-color: $--input-background-color-disabled;
-      border: 1px solid $--input-border-color-disabled;
+      background-color: var(--input-background-color-disabled);
+      border: 1px solid var(--input-border-color-disabled);
 
-      ~.Icon--clearable {
+      ~ .Icon--clearable {
         pointer-events: none;
       }
 
       &::placeholder {
-        color: $--input-placeholder-color-disabled;
+        color: var(--input-placeholder-color-disabled);
       }
     }
 

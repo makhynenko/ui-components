@@ -1,9 +1,3 @@
-$--checkbox-background-color-checked: #3E7BFA;
-$--checkbox-border-color: #3E7BFA;
-$--checkbox-background-color-disabled-checked: rgba(62, 123, 250, 0.4);
-$--checkbox-border-color-disabled: rgba(62, 123, 250, 0.4);
-$--checkbox-checkmark-color: #FFF;
-
 .CheckboxLabel {
   display: flex;
   align-items: center;
@@ -44,20 +38,20 @@ $--checkbox-checkmark-color: #FFF;
     left: 0;
     height: 18px;
     width: 18px;
-    background-color: $--checkbox-checkmark-color;
+    background-color: var(--checkbox-checkmark-color);
     margin: 0 4px;
-    border: 1px solid $--checkbox-background-color-checked;
+    border: 1px solid var(--checkbox-background-color-checked);
     border-radius: 4px;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       display: none;
       top: 15%;
       left: 32%;
       width: 4px;
       height: 8px;
-      border: solid $--checkbox-checkmark-color;
+      border: solid var(--checkbox-checkmark-color);
       border-width: 0 2px 2px 0;
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
@@ -89,7 +83,7 @@ $--checkbox-checkmark-color: #FFF;
     }
 
     &--disabled {
-      border: 1px solid $--checkbox-border-color-disabled;
+      border: 1px solid var(--checkbox-border-color-disabled);
     }
   }
 
@@ -106,17 +100,17 @@ $--checkbox-checkmark-color: #FFF;
   }
 
   &:hover input ~ .Checkmark {
-    background-color: $--checkbox-checkmark-color;
+    background-color: var(--checkbox-checkmark-color);
   }
 
   & input:checked ~ .Checkmark {
-    background-color: $--checkbox-background-color-checked;
+    background-color: var(--checkbox-background-color-checked);
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
   }
 
   & input:checked:disabled ~ .Checkmark {
-    background-color: $--checkbox-background-color-disabled-checked;
+    background-color: var(--checkbox-background-color-disabled-checked);
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
   }
