@@ -1,6 +1,7 @@
 import React from 'react';
 import { Tooltip } from './Tooltip';
 import { storiesOf } from '@storybook/react';
+import { Button } from '../Button';
 
 storiesOf('Tooltip', module).add('Default', () => {
   const customStyle: React.CSSProperties = {
@@ -13,51 +14,148 @@ storiesOf('Tooltip', module).add('Default', () => {
     lineHeight: '24px',
   };
 
-  const wrapperStyle: React.CSSProperties = {
+  const wrapperStyle = {
     display: 'flex',
-    flexDirection: 'column',
+    justifyContent: 'space-around',
+    gap: '8px',
     alignItems: 'center',
   };
 
   const randomText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mi nisl, mollis sit amet
   iaculis non, dignissim nec sem. Etiam vulputate tristique tortor, id pharetra nisi
-  tempor ut. In ac enim vel est dapibus placerat. Morbi convallis tincidunt ante sit
-  amet blandit. Sed ut ante blandit ante interdum posuere. Nunc mattis est ut metus
-  faucibus, a aliquet nibh feugiat. Donec eget pretium justo.`;
+  tempor ut.`;
 
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        display: 'flex',
-        gap: '32px',
-      }}
-    >
+    <div>
+      <p>Position and default aligning (center)</p>
       <div style={wrapperStyle}>
-        <p>First</p>
-        <Tooltip text={'First position'} position='top'>
-          <div style={customStyle}>placement=`top`</div>
+        <Tooltip position='right' text='Lorem ipsum dolor sit amet, consectetur adipiscing elit'>
+          <div style={customStyle}>
+            placement=`right` <br />
+            align=`center`
+          </div>
+        </Tooltip>
+        <Tooltip position='top' text='Lorem ipsum dolor sit amet, consectetur adipiscing elit'>
+          <div style={customStyle}>
+            placement=`top`
+            <br /> align=`center`
+          </div>
+        </Tooltip>
+        <Tooltip position='bottom' text='Lorem ipsum dolor sit amet, consectetur adipiscing elit'>
+          <div style={customStyle}>
+            placement=`bottom`
+            <br />
+            align=`center`
+          </div>
+        </Tooltip>
+        <Tooltip position='left' text='Lorem ipsum dolor sit amet, consectetur adipiscing elit'>
+          <div style={customStyle}>
+            placement=`left` <br />
+            align=`center`
+          </div>
         </Tooltip>
       </div>
 
+      <p>Position and align=start</p>
       <div style={wrapperStyle}>
-        <p>Second</p>
-        <Tooltip text={randomText} position='bottom' width='300px'>
-          <div style={customStyle}>placement=`bottom`</div>
+        <Tooltip
+          position='right'
+          align='start'
+          text='Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+        >
+          <div style={customStyle}>
+            `placement=right` <br />
+            align=`start`
+          </div>
+        </Tooltip>
+        <Tooltip
+          position='top'
+          align='start'
+          text='Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+        >
+          <div style={customStyle}>
+            placement=`top` <br /> align=`start`
+          </div>
+        </Tooltip>
+        <Tooltip
+          position='bottom'
+          align='start'
+          text='Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+        >
+          <div style={customStyle}>
+            placement=`bottom` <br /> align=`start`
+          </div>
+        </Tooltip>
+        <Tooltip
+          position='left'
+          align='start'
+          text='Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+        >
+          <div style={customStyle}>
+            placement=`left` <br /> align=`start`
+          </div>
         </Tooltip>
       </div>
 
+      <p>Position and align=end</p>
       <div style={wrapperStyle}>
-        <p>Third</p>
-        <Tooltip text='Third position' position='right'>
-          <div style={customStyle}>placement=`right`</div>
+        <Tooltip
+          position='right'
+          align='end'
+          text='Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+        >
+          <div style={customStyle}>
+            placement=`right` <br /> align=`end`
+          </div>
+        </Tooltip>
+        <Tooltip
+          position='top'
+          align='end'
+          text='Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+        >
+          <div style={customStyle}>
+            placement=`top`
+            <br /> align=`end`
+          </div>
+        </Tooltip>
+        <Tooltip
+          position='bottom'
+          align='end'
+          text='Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+        >
+          <div style={customStyle}>
+            placement=`bottom`
+            <br /> align=`end`
+          </div>
+        </Tooltip>
+        <Tooltip
+          position='left'
+          align='end'
+          text='Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+        >
+          <div style={customStyle}>
+            placement=`left`
+            <br /> align=`end`
+          </div>
         </Tooltip>
       </div>
 
+      <p>Tooltip width</p>
       <div style={wrapperStyle}>
-        <p>Fourth</p>
-        <Tooltip text='Fourth position' position='left'>
-          <div style={customStyle}>placement=`left`</div>
+        <Tooltip position='top' text={randomText} width='100px'>
+          <Button>width=100px</Button>
+        </Tooltip>
+
+        <Tooltip position='top' text={randomText} width='150px'>
+          <Button>width=150px</Button>
+        </Tooltip>
+
+        <Tooltip position='top' text={randomText} width='300px'>
+          <Button>width=300px</Button>
+        </Tooltip>
+
+        <Tooltip position='top' text={randomText} width='500px'>
+          <Button>width=500px</Button>
         </Tooltip>
       </div>
     </div>
