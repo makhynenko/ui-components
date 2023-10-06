@@ -88,7 +88,7 @@ export const Popover: React.FC<PopoverProps> = ({
             >
               <div
                 className={styles.PopoverWrapper}
-                style={{ backgroundColor: `${backgroundColor}`, color: '#FFF' }}
+                style={{ backgroundColor: `${backgroundColor}`, color: '#fff' }}
               >
                 {content}
               </div>
@@ -98,7 +98,7 @@ export const Popover: React.FC<PopoverProps> = ({
           return (
             <div
               className={styles.PopoverWrapper}
-              style={{ backgroundColor: `${backgroundColor}`, color: '#FFF' }}
+              style={{ backgroundColor: `${backgroundColor}`, color: '#fff' }}
             >
               {content}
             </div>
