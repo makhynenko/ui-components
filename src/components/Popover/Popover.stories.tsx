@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
+import { PopoverTriggerType } from '../../types';
 import { Icons } from '../Icons';
 import { Popover } from './Popover';
 import { Button } from '../Button';
@@ -21,7 +22,7 @@ storiesOf('Popover', module).add('Default', () => {
 
   const selectedValuesExample = [];
 
-  const [newSelectedTrigger, setNewSelectedTrigger] = useState<'hover' | 'click'>('hover');
+  const [newSelectedTrigger, setNewSelectedTrigger] = useState<PopoverTriggerType>('hover');
   const [selectedValues, setSelectedValues] = useState(selectedValuesExample);
   const [newColor, setNewColor] = useState('#000');
   const [newWidth, setNewWidth] = useState('400px');

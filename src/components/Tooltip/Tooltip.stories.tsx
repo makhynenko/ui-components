@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { Tooltip } from './Tooltip';
 import { storiesOf } from '@storybook/react';
 import { RadioGroup } from '../RadioGroup';
+import { PopoverAlignType, PopoverPositionType, PopoverWidthType } from '../../types';
 
 storiesOf('Tooltip', module).add('Default', () => {
-  const [newSelectedPosition, setNewSelectedPosition] = useState<
-    'top' | 'bottom' | 'right' | 'left'
-  >('top');
-  const [newSelectedAlign, setNewSelectedAlign] = useState<'start' | 'center' | 'end'>('center');
-  const [newSelectedWidth, setNewSelectedWidth] = useState<'100px' | '150px' | '300px'>('300px');
+  const [newSelectedPosition, setNewSelectedPosition] = useState<PopoverPositionType>('top');
+  const [newSelectedAlign, setNewSelectedAlign] = useState<PopoverAlignType>('center');
+  const [newSelectedWidth, setNewSelectedWidth] = useState<PopoverWidthType>('300px');
 
   const customStyle: React.CSSProperties = {
     backgroundColor: '#3E7BFA',
