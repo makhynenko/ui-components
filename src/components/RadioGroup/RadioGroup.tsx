@@ -5,21 +5,24 @@ import classnames from 'classnames';
 import style from './radioGroup.module.scss';
 
 export interface RadioGroupProps {
-  size?: Size,
-  options: Option[],
-  selectedValue: string,
-  onSelect: (selectedValue: string) => void,
-  className?: string
+  size?: Size;
+  options: Option[];
+  selectedValue: string;
+  onSelect: (selectedValue: string) => void;
+  className?: string;
 }
 
 export const RadioGroup: React.FC<RadioGroupProps> = ({
-  size, options, selectedValue, onSelect, className
+  size,
+  options,
+  selectedValue,
+  onSelect,
+  className,
 }) => {
-
   const handleRadioChange = (elValue: string) => () => {
-    console.log(onSelect, 'onSelect')
-    onSelect(elValue)
-  }
+    console.log(onSelect, 'onSelect');
+    onSelect(elValue);
+  };
 
   return (
     <ul className={classnames(style.radioGroup, className)}>
@@ -36,4 +39,4 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
       ))}
     </ul>
   );
-}
+};
