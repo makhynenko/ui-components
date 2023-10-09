@@ -1,8 +1,22 @@
 export type Size = 'small' | 'medium' | 'large';
-export type PopoverPositionType = 'top' | 'right' | 'bottom' | 'left';
-export type PopoverAlignType = 'start' | 'center' | 'end';
-export type PopoverWidthType = '100px' | '150px' | '300px';
-export type PopoverTriggerType = 'hover' | 'click';
+
+export enum PopoverTrigger {
+  Hover = 'hover',
+  Click = 'click',
+}
+
+export enum PopoverPosition {
+  Top = 'top',
+  Right = 'right',
+  Bottom = 'bottom',
+  Left = 'left',
+}
+
+export enum PopoverAlign {
+  Start = 'start',
+  Center = 'center',
+  End = 'end',
+}
 export interface Option {
   label: string;
   value: string;

@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { Tooltip } from './Tooltip';
 import { storiesOf } from '@storybook/react';
 import { RadioGroup } from '../RadioGroup';
-import { PopoverAlignType, PopoverPositionType, PopoverWidthType } from '../../types';
+import { PopoverAlign, PopoverPosition } from '../../types';
+import { Input } from '../Input';
 
 storiesOf('Tooltip', module).add('Default', () => {
-  const [newSelectedPosition, setNewSelectedPosition] = useState<PopoverPositionType>('top');
-  const [newSelectedAlign, setNewSelectedAlign] = useState<PopoverAlignType>('center');
-  const [newSelectedWidth, setNewSelectedWidth] = useState<PopoverWidthType>('300px');
+  const [newSelectedPosition, setNewSelectedPosition] = useState<PopoverPosition>(
+    PopoverPosition.Top
+  );
+  const [newSelectedAlign, setNewSelectedAlign] = useState<PopoverAlign>(PopoverAlign.Center);
+  const [ownWidth, setOwnWidth] = useState('300px');
 
   const customStyle: React.CSSProperties = {
     backgroundColor: '#3E7BFA',
@@ -40,12 +43,6 @@ storiesOf('Tooltip', module).add('Default', () => {
     { label: 'end', value: 'end' },
   ];
 
-  const WidthOptions = [
-    { label: '100px', value: '100px' },
-    { label: '150px', value: '150px' },
-    { label: '300px', value: '300px' },
-  ];
-
   const onPositionSelect = (newSelectedPosition) => {
     setNewSelectedPosition(newSelectedPosition);
   };
@@ -54,8 +51,8 @@ storiesOf('Tooltip', module).add('Default', () => {
     setNewSelectedAlign(newSelectedAlign);
   };
 
-  const onPositionWidth = (newSelectedWidth) => {
-    setNewSelectedWidth(newSelectedWidth);
+  const handleWidthChange = (e) => {
+    setOwnWidth(e.target.value);
   };
 
   const randomText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mi nisl, mollis sit amet
@@ -79,22 +76,19 @@ storiesOf('Tooltip', module).add('Default', () => {
         size='large'
       />
 
-      <p style={{ fontWeight: 'bold' }}>Choose needed width for further tooltip </p>
-      <RadioGroup
-        options={WidthOptions}
-        selectedValue={newSelectedWidth}
-        onSelect={onPositionWidth}
-        size='large'
-      />
+      <p style={{ fontWeight: 'bold' }}>
+        Choose needed width for further tooltip - use number with `px`
+      </p>
+      <Input placeholder={'Max-width: 400px'} size='medium' onChange={handleWidthChange} />
 
       <div style={wrapperStyle}>
         <Tooltip
           position={newSelectedPosition}
           align={newSelectedAlign}
           text={randomText}
-          width={newSelectedWidth}
+          width={ownWidth}
         >
-          <div style={customStyle}>Hover me</div>
+          <div style={customStyle}>width: {ownWidth}</div>
         </Tooltip>
       </div>
     </div>

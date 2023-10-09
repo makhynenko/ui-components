@@ -1,17 +1,18 @@
 import React from 'react';
 import { Popover } from '../Popover/Popover';
+import { PopoverAlign, PopoverPosition, PopoverTrigger } from '../../types';
 
 export interface TooltipProps {
   text: string;
-  position?: 'top' | 'right' | 'bottom' | 'left';
-  align?: 'start' | 'center' | 'end';
+  position?: PopoverPosition;
+  align?: PopoverAlign;
   width?: string;
 }
 
 export const Tooltip: React.FC<TooltipProps> = ({
   text,
-  position = 'top',
-  align = 'center',
+  position = PopoverPosition.Top,
+  align = PopoverAlign.Center,
   width,
   children,
 }) => {
@@ -19,7 +20,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
     <div>
       <Popover
         position={position}
-        trigger='hover'
+        trigger={PopoverTrigger.Hover}
         isOpen={false}
         align={align}
         width={width}
