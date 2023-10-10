@@ -6,16 +6,19 @@ import { Button } from '../Button';
 storiesOf('Modal', module).add('Default', () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const switchModal = () => {
-    setIsOpen(!isOpen);
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
   };
 
   return (
     <>
-      <Button onClick={switchModal}>Open modal</Button>
-      {isOpen ? (
-        <Modal isOpen={isOpen} onClose={switchModal}>
-          <Button size='small' onClick={switchModal}>
+      <Button onClick={openModal}>Open modal</Button>
+        <Modal isOpen={isOpen} onClose={closeModal}>
+          <Button size='small' onClick={closeModal}>
             Close
           </Button>
           <h2>What is Lorem Ipsum?</h2>
@@ -29,7 +32,6 @@ storiesOf('Modal', module).add('Default', () => {
             software like Aldus PageMaker including versions of Lorem Ipsum.
           </p>
         </Modal>
-      ) : null}
     </>
   );
 });
