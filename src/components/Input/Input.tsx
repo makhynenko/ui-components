@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import classnames from 'classnames';
 import { IconName } from '../Icons/types';
 import { Icons } from '../Icons';
@@ -23,6 +23,7 @@ export const Input: React.FC<InputProps> = ({
   onClear,
   ...props
 }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
   const iconSizeMap: Record<'small' | 'medium' | 'large', number> = {
     small: 14,
     medium: 18,
@@ -47,14 +48,20 @@ export const Input: React.FC<InputProps> = ({
     onClear?.();
   };
 
+  const onIconClick = (e) => {
+    e.stopPropagation();
+    inputRef.current?.focus();
+  };
+
   return (
     <div className={style.InputWrapper}>
-      <input {...props} className={classes} disabled={disabled} type='text' />
+      <input {...props} className={classes} disabled={disabled} type='text' ref={inputRef} />
       {icon ? (
         <Icons
           name={icon}
           className={`${style.Icon} ${style['Icon--prefix']}`}
           size={iconSizeMap[componentSize]}
+          onClick={onIconClick}
         />
       ) : null}
       {clearable && !disabled ? (

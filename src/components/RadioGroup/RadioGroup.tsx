@@ -17,7 +17,6 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
 }) => {
 
   const handleRadioChange = (elValue: string) => () => {
-    console.log(onSelect, 'onSelect')
     onSelect(elValue)
   }
 
