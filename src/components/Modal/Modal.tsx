@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
 import classnames from 'classnames';
 import style from './modal.module.scss';
 
@@ -13,41 +13,43 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, children, onClose, classNa
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
   useEffect(() => {
-    if (!isOpen) {
+    if (isOpen) {
+      setIsMounted(true);
+    } else {
       setTimeout(() => {
         setIsMounted(false);
       }, 1000);
-    } else {
-      setTimeout(() => {
-        setIsMounted(true);
-      }, 0);
     }
   }, [isOpen]);
 
-  const classes = classnames(
-    style.Modal,
-    {
-      [style['Modal--In']]: isOpen,
-      [style['Modal--Out']]: isOpen === false,
-    },
-    className
-  );
+  const modalClasses = useMemo(() => {
+    return classnames(
+      style.Modal,
+      {
+        [style['Modal--In']]: isOpen,
+        [style['Modal--Out']]: !isOpen,
+      },
+      className
+    );
+  }, [isOpen, className]);
 
-  const overlayClassName = classnames(style.ModalOverlay, {
-    [style['ModalOverlay--In']]: isOpen,
-    [style['ModalOverlay--Out']]: isOpen === false,
-  });
+  const overlayClasses = useMemo(() => {
+    return classnames(style.ModalOverlay, {
+      [style['ModalOverlay--In']]: isOpen,
+      [style['ModalOverlay--Out']]: !isOpen,
+    });
+  }, [isOpen]);
 
-  const handleOutsideClick = () => {
+  const handleOutsideClick = useCallback(() => {
     onClose?.();
-  };
+  }, [onClose]);
 
   return (
     <>
       {isMounted ? (
-        <div className={overlayClassName} onClick={handleOutsideClick}>
+        <div className={overlayClasses} onClick={handleOutsideClick}>
           <div
-            className={classes}
+            className={modalClasses}
             onClick={(e) => {
               e.stopPropagation();
             }}
