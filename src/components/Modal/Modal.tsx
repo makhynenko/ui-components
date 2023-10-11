@@ -22,23 +22,27 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, children, onClose, classNa
     }
   }, [isOpen]);
 
-  const modalClasses = useMemo(() => {
-    return classnames(
-      style.Modal,
-      {
-        [style['Modal--In']]: isOpen,
-        [style['Modal--Out']]: !isOpen,
-      },
-      className
-    );
-  }, [isOpen, className]);
+  const modalClasses = useMemo(
+    () =>
+      classnames(
+        style.Modal,
+        {
+          [style['Modal--In']]: isOpen,
+          [style['Modal--Out']]: !isOpen,
+        },
+        className
+      ),
+    [isOpen, className]
+  );
 
-  const overlayClasses = useMemo(() => {
-    return classnames(style.ModalOverlay, {
-      [style['ModalOverlay--In']]: isOpen,
-      [style['ModalOverlay--Out']]: !isOpen,
-    });
-  }, [isOpen]);
+  const overlayClasses = useMemo(
+    () =>
+      classnames(style.ModalOverlay, {
+        [style['ModalOverlay--In']]: isOpen,
+        [style['ModalOverlay--Out']]: !isOpen,
+      }),
+    [isOpen]
+  );
 
   const handleOutsideClick = useCallback(() => {
     onClose?.();
