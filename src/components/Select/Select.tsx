@@ -7,11 +7,11 @@ import classNames from 'classnames';
 export interface SelectProps {
   options: Option[];
   value?: string;
-  // onChange?: () => void;
+  onChange?: (value: string) => void;
   size?: Size;
 }
 
-export const Select: React.FC<SelectProps> = ({ options, value, size = 'medium' }) => {
+export const Select: React.FC<SelectProps> = ({ options, value, onChange, size = 'medium' }) => {
   const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
   const [selectedOptionValue, setSelectedOptionValue] = useState(value || null);
 
@@ -30,21 +30,25 @@ export const Select: React.FC<SelectProps> = ({ options, value, size = 'medium' 
     };
   }, [ref]);
 
-  const handleSelectClick = useCallback(() => {
+  const openSelect = useCallback(() => {
     setIsSelectOpen(true);
   }, []);
 
-  const handleItemClick = useCallback((e) => {
-    setSelectedOptionValue(e.target.getAttribute('data-item-value'));
-    setIsSelectOpen(false);
-  }, []);
+  const handleItemClick = useCallback(
+    (e) => {
+      onChange?.(e.target.dataset.itemValue);
+      setSelectedOptionValue(e.target.dataset.itemValue);
+      setIsSelectOpen(false);
+    },
+    [onChange]
+  );
 
-  const getOptionLabel = (options, selectedOptionValue) => {
-    const placeholder = options.find((el) => {
-      return el.value === selectedOptionValue;
+  const getOptionLabel = (options, value) => {
+    const selectedOption = options.find((el) => {
+      return el.value === value;
     });
 
-    return placeholder?.label || '';
+    return selectedOption?.label || '';
   };
 
   const listItemClasses = classNames(style.selectListItem, {
@@ -63,7 +67,7 @@ export const Select: React.FC<SelectProps> = ({ options, value, size = 'medium' 
     <div className={style.componentWrapper} ref={ref}>
       <Input
         placeholder='select needed option'
-        onFocus={handleSelectClick}
+        onFocus={openSelect}
         icon={isSelectOpen ? 'chevronUp' : 'chevronDown'}
         value={getOptionLabel(options, selectedOptionValue)}
         readOnly

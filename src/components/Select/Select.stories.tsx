@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Select } from './Select';
 
@@ -8,6 +8,12 @@ storiesOf('Select', module).add('Default', () => {
     { label: 'number', value: '123', disabled: false },
     { label: 'boolean', value: 'boo', disabled: false },
   ];
+
+  const [newSelectedValue, setSelectedValue] = useState<string>('str');
+
+  const onSelectChange = (value) => {
+    setSelectedValue(value);
+  };
 
   return (
     <>
@@ -19,9 +25,7 @@ storiesOf('Select', module).add('Default', () => {
       <Select options={selectOptions} size='large' />
 
       <p>Select width value</p>
-      <Select options={selectOptions} value='123' />
-      <Select options={selectOptions} value='str' />
-      <Select options={selectOptions} value='boo' />
+      <Select options={selectOptions} value={newSelectedValue} onChange={onSelectChange} />
     </>
   );
 });
