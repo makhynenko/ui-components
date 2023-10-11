@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import styles from './popover.module.scss';
 import { Popover as NpmPopover, ContentRenderer, ArrowContainer } from 'react-tiny-popover';
 import { PopoverAlign, PopoverPosition, PopoverTrigger } from '../../types';
@@ -46,23 +46,23 @@ export const Popover: React.FC<PopoverProps> = ({
 }) => {
   const [isPopoverOpen, setIsPopoverOpen] = useState<boolean>(false);
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     trigger === 'click' ? setIsPopoverOpen(!isPopoverOpen) : null;
-  };
+  }, [trigger, isPopoverOpen]);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = useCallback(() => {
     trigger === 'hover' ? setIsPopoverOpen(true) : null;
-  };
+  }, [trigger]);
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     trigger === 'hover' ? setIsPopoverOpen(false) : null;
-  };
+  }, [trigger]);
 
-  const countPaddings = (position) => {
+  const countPaddings = useMemo(() => {
     return position === 'top' || position === 'bottom'
       ? { padding: '8px 0' }
       : { padding: '0 8px' };
-  };
+  }, [position]);
 
   return (
     <NpmPopover
@@ -83,7 +83,7 @@ export const Popover: React.FC<PopoverProps> = ({
               popoverRect={popoverRect}
               arrowColor={backgroundColor}
               arrowSize={8}
-              style={countPaddings(position)}
+              style={countPaddings}
               className='popover-arrow-container'
               arrowClassName='popover-arrow PopoverArrow'
             >
