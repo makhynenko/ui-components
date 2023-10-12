@@ -11,6 +11,7 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
   icon?: IconName;
   clearable?: boolean;
   onClear?: () => void;
+  iconPosition?: 'start' | 'end';
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -21,6 +22,7 @@ export const Input: React.FC<InputProps> = ({
   icon,
   clearable,
   onClear,
+  iconPosition = 'start',
   ...props
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -30,7 +32,7 @@ export const Input: React.FC<InputProps> = ({
     large: 22,
   };
 
-  const classes = classnames(
+  const inputClasses = classnames(
     style.Input,
     {
       [style['Input--disabled']]: disabled,
@@ -38,8 +40,26 @@ export const Input: React.FC<InputProps> = ({
       [style['Input--small']]: componentSize === 'small',
       [style['Input--medium']]: componentSize === 'medium',
       [style['Input--large']]: componentSize === 'large',
-      [style['Input--withIcon']]: Boolean(icon),
+      [style['Input--withIconStart']]: Boolean(icon) && iconPosition === 'start',
+      [style['Input--withIconEnd']]: Boolean(icon) && iconPosition === 'end',
       [style['Input--clearable']]: Boolean(clearable),
+    },
+    className
+  );
+
+  const iconClasses = classnames(
+    style.Icon,
+    {
+      [style['Icon--prefix']]: iconPosition === 'start',
+      [style['Icon--postfix']]: iconPosition === 'end',
+    },
+    className
+  );
+
+  const iconClearableClasses = classnames(
+    style.Icon,
+    {
+      [style['Icon--clearable']]: clearable,
     },
     className
   );
@@ -55,20 +75,20 @@ export const Input: React.FC<InputProps> = ({
 
   return (
     <div className={style.InputWrapper}>
-      <input {...props} className={classes} disabled={disabled} type='text' ref={inputRef} />
+      <input {...props} className={inputClasses} disabled={disabled} type='text' ref={inputRef} />
       {icon ? (
         <Icons
           name={icon}
-          className={`${style.Icon} ${style['Icon--prefix']}`}
+          className={iconClasses}
           size={iconSizeMap[componentSize]}
           onClick={onIconClick}
         />
       ) : null}
-      {clearable && !disabled ? (
+      {clearable && !disabled && iconPosition === 'start' ? (
         <Icons
           name='crossCircle'
           onClick={onClearClick}
-          className={`${style.Icon} ${style['Icon--clearable']}`}
+          className={iconClearableClasses}
           size={iconSizeMap[componentSize]}
         />
       ) : null}

@@ -24,6 +24,10 @@
         left: 8px;
       }
 
+      &--postfix {
+        right: 8px;
+      }
+
       path {
         stroke: var(--input-icon-color);
       }
@@ -60,8 +64,12 @@
       height: 24px;
       font-size: 12px;
 
-      &.Input--withIcon {
+      &.Input--withIconStart {
         padding-left: 24px;
+      }
+
+      &.Input--withIconEnd {
+        padding-right: 24px;
       }
 
       &.Input--clearable {
@@ -73,8 +81,12 @@
       height: 40px;
       font-size: 16px;
 
-      &.Input--withIcon {
+      &.Input--withIconStart {
         padding-left: 32px;
+      }
+
+      &.Input--withIconEnd {
+        padding-right: 32px;
       }
 
       &.Input--clearable {
@@ -95,8 +107,12 @@
       }
     }
 
-    &--withIcon {
+    &--withIconStart {
       padding-left: 28px;
+    }
+
+    &--withIconEnd {
+      padding-right: 28px;
     }
 
     &--clearable {
