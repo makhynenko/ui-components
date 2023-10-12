@@ -2,6 +2,19 @@
   display: inline-block;
   position: relative;
 
+  &--selectOpen {
+    svg {
+      transform: rotate(180deg);
+      transition: transform 100ms ease;
+    }
+  }
+
+  &--selectClose {
+    svg {
+      transition: transform 100ms ease;
+    }
+  }
+
   .optionsList {
     // TODO: need to remove after fonts implementation
     font-family: sans-serif;

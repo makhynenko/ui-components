@@ -24,7 +24,7 @@ storiesOf('Select', module).add('Default', () => {
       <Select options={selectOptions} />
       <Select options={selectOptions} size='large' />
 
-      <p>Select width value</p>
+      <p>Select width value and onChange handler</p>
       <Select options={selectOptions} value={newSelectedValue} onChange={onSelectChange} />
     </>
   );

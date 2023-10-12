@@ -9,9 +9,16 @@ export interface SelectProps {
   value?: string;
   onChange?: (value: string) => void;
   size?: Size;
+  className?: string;
 }
 
-export const Select: React.FC<SelectProps> = ({ options, value, onChange, size = 'medium' }) => {
+export const Select: React.FC<SelectProps> = ({
+  options,
+  value,
+  onChange,
+  size = 'medium',
+  className,
+}) => {
   const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
   const [selectedOptionValue, setSelectedOptionValue] = useState(value || null);
 
@@ -30,11 +37,17 @@ export const Select: React.FC<SelectProps> = ({ options, value, onChange, size =
     };
   }, [ref]);
 
+  useEffect(() => {
+    if (value !== undefined) {
+      setSelectedOptionValue(value);
+    }
+  }, [value]);
+
   const openSelect = useCallback(() => {
     setIsSelectOpen(true);
   }, []);
 
-  const handleItemClick = useCallback(
+  const onSelectItem = useCallback(
     (e) => {
       onChange?.(e.target.dataset.itemValue);
       setSelectedOptionValue(e.target.dataset.itemValue);
@@ -63,15 +76,25 @@ export const Select: React.FC<SelectProps> = ({ options, value, onChange, size =
     [style['optionsList--large']]: size === 'large',
   });
 
+  const wrapperClasses = classNames(
+    style.componentWrapper,
+    {
+      [style['componentWrapper--selectOpen']]: isSelectOpen,
+      [style['componentWrapper--selectClose']]: !isSelectOpen,
+    },
+    className
+  );
+
   return (
-    <div className={style.componentWrapper} ref={ref}>
+    <div className={wrapperClasses} ref={ref}>
       <Input
         placeholder='select needed option'
         onFocus={openSelect}
-        icon={isSelectOpen ? 'chevronUp' : 'chevronDown'}
+        icon='chevronDown'
         value={getOptionLabel(options, selectedOptionValue)}
         readOnly
         size={size}
+        iconPosition='end'
       />
       {isSelectOpen ? (
         <ul className={listClasses}>
@@ -80,7 +103,7 @@ export const Select: React.FC<SelectProps> = ({ options, value, onChange, size =
               className={listItemClasses}
               data-item-value={el.value}
               key={el.value}
-              onClick={handleItemClick}
+              onClick={onSelectItem}
             >
               {el.label}
             </li>
