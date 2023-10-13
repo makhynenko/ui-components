@@ -1,4 +1,8 @@
-export type Size = 'small' | 'medium' | 'large';
+export enum ElementSize {
+  Small = 'small',
+  Medium = 'medium',
+  Large = 'large',
+}
 
 export enum PopoverTrigger {
   Hover = 'hover',

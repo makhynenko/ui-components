@@ -1,0 +1,85 @@
+.componentWrapper {
+  display: inline-block;
+  position: relative;
+
+  &--selectOpen {
+    svg {
+      transform: rotate(180deg);
+      transition: transform 200ms ease;
+    }
+  }
+
+  &--selectClose {
+    svg {
+      transition: transform 200ms ease;
+    }
+  }
+
+  .inputWrapper {
+    width: 100%;
+
+    input {
+      width: 100%;
+    }
+  }
+
+  .optionsList {
+    // TODO: need to remove after fonts implementation
+    font-family: sans-serif;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+    list-style: none;
+    margin: 4px 0 0 0;
+    border-radius: 4px;
+    padding: 0;
+    position: absolute;
+    z-index: 2;
+    background-color: var(--select-background-color);
+    width: 100%;
+    box-sizing: border-box;
+
+    &--small {
+      margin: 2px 0 0 0;
+    }
+
+    &--large {
+      margin: 8px 0 0 0;
+    }
+
+    .selectListItem {
+      cursor: pointer;
+      font-size: 14px;
+      padding: 8px;
+
+      &--small {
+        padding: 6px 8px;
+        font-size: 12px;
+        line-height: 12px;
+      }
+
+      &--large {
+        font-size: 16px;
+        line-height: 16px;
+        padding: 12px 8px;
+      }
+
+      &--isChosen {
+        font-weight: bold;
+      }
+
+      &:hover {
+        background-color: var(--select-hover-background-color);
+        color: var(--select-hover-text-color);
+      }
+
+      &:first-child {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+      }
+
+      &:last-child {
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+    }
+  }
+}

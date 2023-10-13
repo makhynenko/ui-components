@@ -1,30 +1,32 @@
 import React from 'react';
-import { Option, Size } from '../../types';
+import { Option, ElementSize } from '../../types';
 import { Radio } from '../Radio/Radio';
 import classnames from 'classnames';
-import style from './radioGroup.module.scss';
+import styles from './radioGroup.module.scss';
 
 export interface RadioGroupProps {
-  size?: Size,
-  options: Option[],
-  selectedValue: string,
-  onSelect: (selectedValue: string) => void,
-  className?: string
+  size?: ElementSize;
+  options: Option[];
+  selectedValue: string;
+  onSelect: (selectedValue: string) => void;
+  className?: string;
 }
 
 export const RadioGroup: React.FC<RadioGroupProps> = ({
-  size, options, selectedValue, onSelect, className
+  size,
+  options,
+  selectedValue,
+  onSelect,
+  className,
 }) => {
-
   const handleRadioChange = (elValue: string) => () => {
-    console.log(onSelect, 'onSelect')
-    onSelect(elValue)
-  }
+    onSelect(elValue);
+  };
 
   return (
-    <ul className={classnames(style.radioGroup, className)}>
+    <ul className={classnames(styles.radioGroup, className)}>
       {options.map((el) => (
-        <li className={style.radioItem} key={el.value}>
+        <li className={styles.radioItem} key={el.value}>
           <Radio
             label={el.label}
             disabled={el.disabled}
@@ -36,4 +38,4 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
       ))}
     </ul>
   );
-}
+};
