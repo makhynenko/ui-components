@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import styles from './select.module.scss';
 import { Option, ElementSize } from '../../types';
 import { Input } from '../Input';
@@ -57,38 +57,25 @@ export const Select: React.FC<SelectProps> = ({
     [onChange]
   );
 
-  // TO CHECK
-  const getOptionLabel = useCallback((options, value) => {
+  const selectedOptionLabel = useMemo(() => {
     const selectedOption = options.find((el) => {
-      return el.value === value;
+      return el.value === selectedOptionValue;
     });
 
     return selectedOption?.label || '';
-  }, []);
+  }, [options, selectedOptionValue]);
 
-  // TO CHECK
   const getListItemClasses = useCallback(
     (value) => {
-      console.log('lllll');
       return classNames(styles.selectListItem, {
         [styles['selectListItem--small']]: size === ElementSize.Small,
         [styles['selectListItem--medium']]: size === ElementSize.Medium,
         [styles['selectListItem--large']]: size === ElementSize.Large,
-        [styles['selectListItem--isChosen']]: value === selectedOptionValue,
+        [styles['selectListItem--isChosen']]: selectedOptionValue === value,
       });
     },
     [selectedOptionValue, size]
   );
-
-  // const getListItemClasses = (value) => {
-  //   console.log('lllll');
-  //   return classNames(styles.selectListItem, {
-  //     [styles['selectListItem--small']]: size === ElementSize.Small,
-  //     [styles['selectListItem--medium']]: size === ElementSize.Medium,
-  //     [styles['selectListItem--large']]: size === ElementSize.Large,
-  //     [styles['selectListItem--isChosen']]: value === selectedOptionValue,
-  //   });
-  // };
 
   const listClasses = classNames(styles.optionsList, {
     [styles['optionsList--small']]: size === ElementSize.Small,
@@ -112,7 +99,7 @@ export const Select: React.FC<SelectProps> = ({
         placeholder='select needed option'
         onFocus={openSelect}
         icon='chevronDown'
-        value={getOptionLabel(options, selectedOptionValue)}
+        value={selectedOptionLabel}
         readOnly
         size={size}
         iconPosition='end'

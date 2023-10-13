@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import classnames from 'classnames';
 import { IconName } from '../Icons/types';
 import { Icons } from '../Icons';
@@ -28,9 +28,9 @@ export const Input: React.FC<InputProps> = ({
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const iconSizeMap: Record<ElementSize, number> = {
-    small: 14,
-    medium: 18,
-    large: 22,
+    [ElementSize.Small]: 14,
+    [ElementSize.Medium]: 18,
+    [ElementSize.Large]: 22,
   };
 
   const inputClasses = classnames(styles.Input, {
@@ -53,14 +53,14 @@ export const Input: React.FC<InputProps> = ({
     [styles['Icon--clearable']]: clearable,
   });
 
-  const onClearClick = () => {
+  const onClearClick = useCallback(() => {
     onClear?.();
-  };
+  }, [onClear]);
 
-  const onIconClick = (e) => {
+  const onIconClick = useCallback((e) => {
     e.stopPropagation();
     inputRef.current?.focus();
-  };
+  }, [inputRef]);
 
   return (
     <div className={classnames(styles.InputWrapper, className)}>

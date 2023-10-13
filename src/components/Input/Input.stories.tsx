@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Input } from './Input';
 import { ElementSize } from '../../types';
@@ -6,13 +6,13 @@ import { ElementSize } from '../../types';
 storiesOf('Input', module).add('Default', () => {
   const [currentValue, setCurrentValue] = useState<string>('');
 
-  const onInputChange = (e) => {
+  const onInputChange = useCallback((e) => {
     setCurrentValue(e.target.value);
-  };
+  }, []);
 
-  const onClear = () => {
+  const onClear = useCallback(() => {
     setCurrentValue('');
-  };
+  }, []);
 
   const wrapperStyles = { display: 'flex', gap: '16px', alignItems: 'center' };
 
