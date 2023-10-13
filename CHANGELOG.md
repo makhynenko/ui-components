@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/makhynenko/ui-components/compare/v1.3.0...v1.4.0) (2023-10-13)
+
+
+### Features
+
+* create tooltip component ([#17](https://github.com/makhynenko/ui-components/issues/17)) ([bedfa55](https://github.com/makhynenko/ui-components/commit/bedfa557a6162192ba2f81fba434d112a6383f25))
+
 ## [1.3.0](https://github.com/makhynenko/ui-components/compare/v1.2.2...v1.3.0) (2023-10-11)
 
 

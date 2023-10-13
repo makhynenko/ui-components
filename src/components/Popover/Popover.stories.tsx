@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
+import { PopoverAlign, PopoverPosition, PopoverTrigger } from '../../types';
 import { Icons } from '../Icons';
 import { Popover } from './Popover';
 import { Button } from '../Button';
@@ -20,10 +21,10 @@ storiesOf('Popover', module).add('Default', () => {
     { label: 'click', value: 'click' },
   ];
 
-  const selectedValuesExample = [];
-
-  const [newSelectedTrigger, setNewSelectedTrigger] = useState<'hover' | 'click'>('hover');
-  const [selectedValues, setSelectedValues] = useState(selectedValuesExample);
+  const [newSelectedTrigger, setNewSelectedTrigger] = useState<PopoverTrigger>(
+    PopoverTrigger.Hover
+  );
+  const [selectedValues, setSelectedValues] = useState([]);
   const [newColor, setNewColor] = useState('#000');
   const [newWidth, setNewWidth] = useState('400px');
 
@@ -80,7 +81,7 @@ storiesOf('Popover', module).add('Default', () => {
       <p>Ways to trigger with custom HTML</p>
       <div style={wrapperStyleLessBlocks}>
         <Popover
-          trigger='hover'
+          trigger={PopoverTrigger.Hover}
           content={
             <>
               <p>Arrow icons list</p>
@@ -108,7 +109,7 @@ storiesOf('Popover', module).add('Default', () => {
         </Popover>
 
         <Popover
-          trigger='click'
+          trigger={PopoverTrigger.Click}
           content={
             <>
               <p>Checkbox group</p>
@@ -137,7 +138,7 @@ storiesOf('Popover', module).add('Default', () => {
       <div style={wrapperStyle}>
         <Popover
           trigger={newSelectedTrigger}
-          position='right'
+          position={PopoverPosition.Right}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <div style={customDivStyle}>
@@ -147,7 +148,7 @@ storiesOf('Popover', module).add('Default', () => {
         </Popover>
         <Popover
           trigger={newSelectedTrigger}
-          position='top'
+          position={PopoverPosition.Top}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <div style={customDivStyle}>
@@ -157,7 +158,7 @@ storiesOf('Popover', module).add('Default', () => {
         </Popover>
         <Popover
           trigger={newSelectedTrigger}
-          position='bottom'
+          position={PopoverPosition.Bottom}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <div style={customDivStyle}>
@@ -168,7 +169,7 @@ storiesOf('Popover', module).add('Default', () => {
         </Popover>
         <Popover
           trigger={newSelectedTrigger}
-          position='left'
+          position={PopoverPosition.Left}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <div style={customDivStyle}>
@@ -182,8 +183,8 @@ storiesOf('Popover', module).add('Default', () => {
       <div style={wrapperStyle}>
         <Popover
           trigger={newSelectedTrigger}
-          position='right'
-          align='start'
+          position={PopoverPosition.Right}
+          align={PopoverAlign.Start}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <div style={customDivStyle}>
@@ -193,8 +194,8 @@ storiesOf('Popover', module).add('Default', () => {
         </Popover>
         <Popover
           trigger={newSelectedTrigger}
-          position='top'
-          align='start'
+          position={PopoverPosition.Top}
+          align={PopoverAlign.Start}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <div style={customDivStyle}>
@@ -203,8 +204,8 @@ storiesOf('Popover', module).add('Default', () => {
         </Popover>
         <Popover
           trigger={newSelectedTrigger}
-          position='bottom'
-          align='start'
+          position={PopoverPosition.Bottom}
+          align={PopoverAlign.Start}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <div style={customDivStyle}>
@@ -213,8 +214,8 @@ storiesOf('Popover', module).add('Default', () => {
         </Popover>
         <Popover
           trigger={newSelectedTrigger}
-          position='left'
-          align='start'
+          position={PopoverPosition.Left}
+          align={PopoverAlign.Start}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <div style={customDivStyle}>
@@ -227,8 +228,8 @@ storiesOf('Popover', module).add('Default', () => {
       <div style={wrapperStyle}>
         <Popover
           trigger={newSelectedTrigger}
-          position='right'
-          align='end'
+          position={PopoverPosition.Right}
+          align={PopoverAlign.End}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <div style={customDivStyle}>
@@ -237,8 +238,8 @@ storiesOf('Popover', module).add('Default', () => {
         </Popover>
         <Popover
           trigger={newSelectedTrigger}
-          position='top'
-          align='end'
+          position={PopoverPosition.Top}
+          align={PopoverAlign.End}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <div style={customDivStyle}>
@@ -248,8 +249,8 @@ storiesOf('Popover', module).add('Default', () => {
         </Popover>
         <Popover
           trigger={newSelectedTrigger}
-          position='bottom'
-          align='end'
+          position={PopoverPosition.Bottom}
+          align={PopoverAlign.End}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <div style={customDivStyle}>
@@ -259,8 +260,8 @@ storiesOf('Popover', module).add('Default', () => {
         </Popover>
         <Popover
           trigger={newSelectedTrigger}
-          position='left'
-          align='end'
+          position={PopoverPosition.Left}
+          align={PopoverAlign.End}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <div style={customDivStyle}>
@@ -274,7 +275,7 @@ storiesOf('Popover', module).add('Default', () => {
       <div style={wrapperStyle}>
         <Popover
           trigger={newSelectedTrigger}
-          position='bottom'
+          position={PopoverPosition.Bottom}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <Button>Offset=0</Button>
@@ -283,7 +284,7 @@ storiesOf('Popover', module).add('Default', () => {
         <Popover
           offset={8}
           trigger={newSelectedTrigger}
-          position='bottom'
+          position={PopoverPosition.Bottom}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <Button>Offset=8</Button>
@@ -292,7 +293,7 @@ storiesOf('Popover', module).add('Default', () => {
         <Popover
           offset={16}
           trigger={newSelectedTrigger}
-          position='bottom'
+          position={PopoverPosition.Bottom}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <Button>Offset=16</Button>
@@ -301,7 +302,7 @@ storiesOf('Popover', module).add('Default', () => {
         <Popover
           offset={24}
           trigger={newSelectedTrigger}
-          position='bottom'
+          position={PopoverPosition.Bottom}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <Button>Offset=24</Button>
@@ -313,7 +314,7 @@ storiesOf('Popover', module).add('Default', () => {
         <Popover
           hasArrow={false}
           trigger={newSelectedTrigger}
-          position='bottom'
+          position={PopoverPosition.Bottom}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <Button>Offset=0</Button>
@@ -323,7 +324,7 @@ storiesOf('Popover', module).add('Default', () => {
           offset={8}
           hasArrow={false}
           trigger={newSelectedTrigger}
-          position='bottom'
+          position={PopoverPosition.Bottom}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <Button>Offset=8</Button>
@@ -333,7 +334,7 @@ storiesOf('Popover', module).add('Default', () => {
           offset={16}
           hasArrow={false}
           trigger={newSelectedTrigger}
-          position='bottom'
+          position={PopoverPosition.Bottom}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <Button>Offset=16</Button>
@@ -343,7 +344,7 @@ storiesOf('Popover', module).add('Default', () => {
           offset={24}
           hasArrow={false}
           trigger={newSelectedTrigger}
-          position='bottom'
+          position={PopoverPosition.Bottom}
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
           <Button>Offset=24</Button>
