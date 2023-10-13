@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { CheckboxGroup } from './CheckboxGroup';
+import { ElementSize } from '../../types';
 
 storiesOf('CheckboxGroup', module).add('Default', () => {
   const optionsExample = [
@@ -23,14 +24,14 @@ storiesOf('CheckboxGroup', module).add('Default', () => {
         options={optionsExample}
         selectedValues={selectedValues}
         onSelect={onSelect}
-        size='small'
+        size={ElementSize.Small}
       />
       <CheckboxGroup options={optionsExample} selectedValues={selectedValues} onSelect={onSelect} />
       <CheckboxGroup
         options={optionsExample}
         selectedValues={selectedValues}
         onSelect={onSelect}
-        size='large'
+        size={ElementSize.Large}
       />
     </>
   );

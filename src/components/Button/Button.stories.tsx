@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Button } from './Button';
+import { ElementSize } from '../../types';
 
 storiesOf('Button', module).add('Default', () => (
   <>
@@ -13,30 +14,30 @@ storiesOf('Button', module).add('Default', () => (
       <Button variant='secondary'>Button sec</Button>
 
       <p>size only</p>
-      <Button size='small'>Button sm</Button>
-      <Button size='medium'>Button md</Button>
-      <Button size='large'>Button lg</Button>
+      <Button size={ElementSize.Small}>Button sm</Button>
+      <Button size={ElementSize.Medium}>Button md</Button>
+      <Button size={ElementSize.Large}>Button lg</Button>
 
       <p>size and varinat</p>
       <p>primary</p>
-      <Button size='small' variant='primary'>
+      <Button size={ElementSize.Small} variant='primary'>
         Button sm pr
       </Button>
-      <Button size='medium' variant='primary'>
+      <Button size={ElementSize.Medium} variant='primary'>
         Button md pr
       </Button>
-      <Button size='large' variant='primary'>
+      <Button size={ElementSize.Large} variant='primary'>
         Button lg pr
       </Button>
 
       <p>secondary</p>
-      <Button size='small' variant='secondary'>
+      <Button size={ElementSize.Small} variant='secondary'>
         Button sm sec
       </Button>
-      <Button size='medium' variant='secondary'>
+      <Button size={ElementSize.Medium} variant='secondary'>
         Button md sec
       </Button>
-      <Button size='large' variant='secondary'>
+      <Button size={ElementSize.Large} variant='secondary'>
         Button lg sec
       </Button>
     </div>
@@ -54,36 +55,36 @@ storiesOf('Button', module).add('Default', () => (
       </Button>
 
       <p>disabled with size only</p>
-      <Button disabled size='small'>
+      <Button disabled size={ElementSize.Small}>
         Button sm
       </Button>
-      <Button disabled size='medium'>
+      <Button disabled size={ElementSize.Medium}>
         Button md
       </Button>
-      <Button disabled size='large'>
+      <Button disabled size={ElementSize.Large}>
         Button lg
       </Button>
 
       <p>disabled with size and variant</p>
       <p>primary</p>
-      <Button disabled size='small' variant='primary'>
+      <Button disabled size={ElementSize.Small} variant='primary'>
         Button sm pr
       </Button>
-      <Button disabled size='medium' variant='primary'>
+      <Button disabled size={ElementSize.Medium} variant='primary'>
         Button md pr
       </Button>
-      <Button disabled size='large' variant='primary'>
+      <Button disabled size={ElementSize.Large} variant='primary'>
         Button lg pr
       </Button>
 
       <p>secondary</p>
-      <Button disabled size='small' variant='secondary'>
+      <Button disabled size={ElementSize.Small} variant='secondary'>
         Button sm sec
       </Button>
-      <Button disabled size='medium' variant='secondary'>
+      <Button disabled size={ElementSize.Medium} variant='secondary'>
         Button md sec
       </Button>
-      <Button disabled size='large' variant='secondary'>
+      <Button disabled size={ElementSize.Large} variant='secondary'>
         Button lg sec
       </Button>
     </div>

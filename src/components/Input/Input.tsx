@@ -1,67 +1,83 @@
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 import classnames from 'classnames';
 import { IconName } from '../Icons/types';
 import { Icons } from '../Icons';
-import style from './input.module.scss';
+import styles from './input.module.scss';
+import { ElementSize } from '../../types';
 
 export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   disabled?: boolean;
-  size?: 'small' | 'medium' | 'large';
+  size?: ElementSize;
   invalid?: boolean;
   icon?: IconName;
   clearable?: boolean;
   onClear?: () => void;
+  iconPosition?: 'start' | 'end';
 }
 
 export const Input: React.FC<InputProps> = ({
   disabled,
   invalid,
-  size: componentSize = 'medium',
+  size: componentSize = ElementSize.Medium,
   className,
   icon,
   clearable,
   onClear,
+  iconPosition = 'start',
   ...props
 }) => {
-  const iconSizeMap: Record<'small' | 'medium' | 'large', number> = {
-    small: 14,
-    medium: 18,
-    large: 22,
+  const inputRef = useRef<HTMLInputElement>(null);
+  const iconSizeMap: Record<ElementSize, number> = {
+    [ElementSize.Small]: 14,
+    [ElementSize.Medium]: 18,
+    [ElementSize.Large]: 22,
   };
 
-  const classes = classnames(
-    style.Input,
-    {
-      [style['Input--disabled']]: disabled,
-      [style['Input--invalid']]: invalid,
-      [style['Input--small']]: componentSize === 'small',
-      [style['Input--medium']]: componentSize === 'medium',
-      [style['Input--large']]: componentSize === 'large',
-      [style['Input--withIcon']]: Boolean(icon),
-      [style['Input--clearable']]: Boolean(clearable),
-    },
-    className
-  );
+  const inputClasses = classnames(styles.Input, {
+    [styles['Input--disabled']]: disabled,
+    [styles['Input--invalid']]: invalid,
+    [styles['Input--small']]: componentSize === ElementSize.Small,
+    [styles['Input--medium']]: componentSize === ElementSize.Medium,
+    [styles['Input--large']]: componentSize === ElementSize.Large,
+    [styles['Input--withIconStart']]: Boolean(icon) && iconPosition === 'start',
+    [styles['Input--withIconEnd']]: Boolean(icon) && iconPosition === 'end',
+    [styles['Input--clearable']]: Boolean(clearable),
+  });
 
-  const onClearClick = () => {
+  const iconClasses = classnames(styles.Icon, {
+    [styles['Icon--prefix']]: iconPosition === 'start',
+    [styles['Icon--postfix']]: iconPosition === 'end',
+  });
+
+  const iconClearableClasses = classnames(styles.Icon, {
+    [styles['Icon--clearable']]: clearable,
+  });
+
+  const onClearClick = useCallback(() => {
     onClear?.();
-  };
+  }, [onClear]);
+
+  const onIconClick = useCallback((e) => {
+    e.stopPropagation();
+    inputRef.current?.focus();
+  }, [inputRef]);
 
   return (
-    <div className={style.InputWrapper}>
-      <input {...props} className={classes} disabled={disabled} type='text' />
+    <div className={classnames(styles.InputWrapper, className)}>
+      <input {...props} className={inputClasses} disabled={disabled} type='text' ref={inputRef} />
       {icon ? (
         <Icons
           name={icon}
-          className={`${style.Icon} ${style['Icon--prefix']}`}
+          className={iconClasses}
           size={iconSizeMap[componentSize]}
+          onClick={onIconClick}
         />
       ) : null}
-      {clearable && !disabled ? (
+      {clearable && !disabled && iconPosition !== 'end' ? (
         <Icons
           name='crossCircle'
           onClick={onClearClick}
-          className={`${style.Icon} ${style['Icon--clearable']}`}
+          className={iconClearableClasses}
           size={iconSizeMap[componentSize]}
         />
       ) : null}

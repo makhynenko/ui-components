@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { RadioGroup } from './RadioGroup';
+import { ElementSize } from '../../types';
 
 storiesOf('RadioGroup', module).add('Default', () => {
   const optionsExample = [
@@ -22,14 +23,14 @@ storiesOf('RadioGroup', module).add('Default', () => {
         options={optionsExample}
         selectedValue={selectedValue}
         onSelect={onSelect}
-        size='small'
+        size={ElementSize.Small}
       />
       <RadioGroup options={optionsExample} selectedValue={selectedValue} onSelect={onSelect} />
       <RadioGroup
         options={optionsExample}
         selectedValue={selectedValue}
         onSelect={onSelect}
-        size='large'
+        size={ElementSize.Large}
       />
     </>
   );

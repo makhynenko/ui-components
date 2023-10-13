@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import style from './radio.module.scss';
+import styles from './radio.module.scss';
 import classnames from 'classnames';
+import { ElementSize } from '../../types';
 
 export interface RadioProps
   extends Omit<
@@ -8,7 +9,7 @@ export interface RadioProps
     'onChange' | 'value' | 'size' | 'checked'
   > {
   disabled?: boolean;
-  size?: 'small' | 'medium' | 'large';
+  size?: ElementSize;
   value?: boolean;
   label?: string;
   onChange?: (value: boolean) => void;
@@ -32,29 +33,29 @@ export const Radio: React.FC<RadioProps> = ({
   }, [value]);
 
   const inputClasses = classnames(
-    style.Radio,
+    styles.Radio,
     {
-      [style['Radio--disabled']]: disabled,
-      [style['Radio--small']]: size === 'small',
-      [style['Radio--medium']]: size === 'medium',
-      [style['Radio--large']]: size === 'large',
-      [style['Radio--checked']]: checked,
+      [styles['Radio--disabled']]: disabled,
+      [styles['Radio--small']]: size === ElementSize.Small,
+      [styles['Radio--medium']]: size === ElementSize.Medium,
+      [styles['Radio--large']]: size === ElementSize.Large,
+      [styles['Radio--checked']]: checked,
     },
     className
   );
 
-  const labelClasses = classnames(style.RadioLabel, {
-    [style['RadioLabel--small']]: size === 'small',
-    [style['RadioLabel--medium']]: size === 'medium',
-    [style['RadioLabel--large']]: size === 'large',
-    [style['RadioLabel--disabled']]: disabled,
+  const labelClasses = classnames(styles.RadioLabel, {
+    [styles['RadioLabel--small']]: size === ElementSize.Small,
+    [styles['RadioLabel--medium']]: size === ElementSize.Medium,
+    [styles['RadioLabel--large']]: size === ElementSize.Large,
+    [styles['RadioLabel--disabled']]: disabled,
   });
 
-  const checkmarkRadioClasses = classnames(style.CheckmarkRadio, {
-    [style['CheckmarkRadio--small']]: size === 'small',
-    [style['CheckmarkRadio--medium']]: size === 'medium',
-    [style['CheckmarkRadio--large']]: size === 'large',
-    [style['CheckmarkRadio--disabled']]: disabled,
+  const checkmarkRadioClasses = classnames(styles.CheckmarkRadio, {
+    [styles['CheckmarkRadio--small']]: size === ElementSize.Small,
+    [styles['CheckmarkRadio--medium']]: size === ElementSize.Medium,
+    [styles['CheckmarkRadio--large']]: size === ElementSize.Large,
+    [styles['CheckmarkRadio--disabled']]: disabled,
   });
 
   const onChangeHandler = (e) => {
@@ -73,7 +74,7 @@ export const Radio: React.FC<RadioProps> = ({
         onChange={onChangeHandler}
       />
       <span className={checkmarkRadioClasses}></span>
-      {label ? <span className={style.radioLabelText}>{label}</span> : null}
+      {label ? <span className={styles.radioLabelText}>{label}</span> : null}
     </label>
   );
 };

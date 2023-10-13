@@ -1,8 +1,6 @@
-export interface IconProps {
-  className?: string;
+export interface IconProps extends React.SVGProps<SVGSVGElement> {
   color?: string;
   size?: number;
-  onClick?: () => void;
 }
 
 export type IconName =

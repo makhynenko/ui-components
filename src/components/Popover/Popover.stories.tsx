@@ -7,6 +7,7 @@ import { Button } from '../Button';
 import { Input } from '../Input';
 import { CheckboxGroup } from '../CheckboxGroup';
 import { RadioGroup } from '../RadioGroup';
+import { ElementSize } from '../../types';
 
 storiesOf('Popover', module).add('Default', () => {
   const optionsExample = [
@@ -116,7 +117,7 @@ storiesOf('Popover', module).add('Default', () => {
                 options={optionsExample}
                 selectedValues={selectedValues}
                 onSelect={onSelect}
-                size='large'
+                size={ElementSize.Large}
               />
             </>
           }
@@ -130,7 +131,7 @@ storiesOf('Popover', module).add('Default', () => {
         options={triggerOptions}
         selectedValue={newSelectedTrigger}
         onSelect={onTriggerSelect}
-        size='large'
+        size={ElementSize.Large}
       />
 
       <p>Position and default aligning (center)</p>
@@ -387,7 +388,11 @@ storiesOf('Popover', module).add('Default', () => {
 
       <div style={wrapperStyleLessBlocks}>
         <p>Try your color - Use default colors OR Hex color codes starts with # </p>
-        <Input placeholder={'Please insert color'} size='medium' onChange={handleColorChange} />
+        <Input
+          placeholder={'Please insert color'}
+          size={ElementSize.Medium}
+          onChange={handleColorChange}
+        />
         <Popover
           trigger={newSelectedTrigger}
           backgroundColor={newColor}
@@ -399,7 +404,11 @@ storiesOf('Popover', module).add('Default', () => {
 
       <div style={wrapperStyleLessBlocks}>
         <p>Try your max width - use number with `px`</p>
-        <Input placeholder={'Max-width: 400px'} size='medium' onChange={handleWidthChange} />
+        <Input
+          placeholder={'Max-width: 400px'}
+          size={ElementSize.Medium}
+          onChange={handleWidthChange}
+        />
         <Popover
           trigger={newSelectedTrigger}
           width={newWidth}

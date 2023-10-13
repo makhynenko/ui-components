@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Radio } from './Radio';
 import { useState } from 'react';
+import { ElementSize } from '../../types';
 
 storiesOf('Radio', module).add('Default', () => {
   const [value, setValue] = useState<boolean>(false);
@@ -40,93 +41,93 @@ storiesOf('Radio', module).add('Default', () => {
 
       <p>Small</p>
       <div style={inlineStyles}>
-        <Radio size='small' disabled />
-        <Radio size='small' disabled value={false} />
-        <Radio size='small' disabled value={true} />
+        <Radio size={ElementSize.Small} disabled />
+        <Radio size={ElementSize.Small} disabled value={false} />
+        <Radio size={ElementSize.Small} disabled value={true} />
       </div>
       <br />
       <div style={inlineStyles}>
-        <Radio size='small' label='Lorem ipsum' onChange={onChange} disabled value={true} />
-        <Radio size='small' label='Lorem ipsum' onChange={onChange} disabled value={false} />
-        <Radio size='small' label='Lorem ipsum' onChange={onChange} disabled value={value} />
+        <Radio size={ElementSize.Small} label='Lorem ipsum' onChange={onChange} disabled value={true} />
+        <Radio size={ElementSize.Small} label='Lorem ipsum' onChange={onChange} disabled value={false} />
+        <Radio size={ElementSize.Small} label='Lorem ipsum' onChange={onChange} disabled value={value} />
       </div>
       <br />
-      <Radio size='small' label='Lorem ipsum' onChange={onChange} disabled />
+      <Radio size={ElementSize.Small} label='Lorem ipsum' onChange={onChange} disabled />
 
       <br />
       <div style={inlineStyles}>
-        <Radio size='small' />
-        <Radio size='small' value={false} />
-        <Radio size='small' value={true} />
+        <Radio size={ElementSize.Small} />
+        <Radio size={ElementSize.Small} value={false} />
+        <Radio size={ElementSize.Small} value={true} />
       </div>
       <br />
       <div style={inlineStyles}>
-        <Radio size='small' label='Lorem ipsum' onChange={onChange} value={true} />
-        <Radio size='small' label='Lorem ipsum' onChange={onChange} value={false} />
-        <Radio size='small' label='Lorem ipsum' onChange={onChange} value={value} />
+        <Radio size={ElementSize.Small} label='Lorem ipsum' onChange={onChange} value={true} />
+        <Radio size={ElementSize.Small} label='Lorem ipsum' onChange={onChange} value={false} />
+        <Radio size={ElementSize.Small} label='Lorem ipsum' onChange={onChange} value={value} />
       </div>
       <br />
-      <Radio size='small' label='Lorem ipsum' onChange={onChange} />
+      <Radio size={ElementSize.Small} label='Lorem ipsum' onChange={onChange} />
 
       <p>Medium</p>
       <div style={inlineStyles}>
-        <Radio size='medium' disabled />
-        <Radio size='medium' disabled value={false} />
-        <Radio size='medium' disabled value={true} />
+        <Radio size={ElementSize.Medium} disabled />
+        <Radio size={ElementSize.Medium} disabled value={false} />
+        <Radio size={ElementSize.Medium} disabled value={true} />
       </div>
       <br />
       <div style={inlineStyles}>
-        <Radio size='medium' label='Lorem ipsum' onChange={onChange} disabled value={true} />
-        <Radio size='medium' label='Lorem ipsum' onChange={onChange} disabled value={false} />
-        <Radio size='medium' label='Lorem ipsum' onChange={onChange} disabled value={value} />
+        <Radio size={ElementSize.Medium} label='Lorem ipsum' onChange={onChange} disabled value={true} />
+        <Radio size={ElementSize.Medium} label='Lorem ipsum' onChange={onChange} disabled value={false} />
+        <Radio size={ElementSize.Medium} label='Lorem ipsum' onChange={onChange} disabled value={value} />
       </div>
       <br />
-      <Radio size='medium' label='Lorem ipsum' onChange={onChange} disabled />
+      <Radio size={ElementSize.Medium} label='Lorem ipsum' onChange={onChange} disabled />
 
       <br />
       <div style={inlineStyles}>
-        <Radio size='medium' />
-        <Radio size='medium' value={false} />
-        <Radio size='medium' value={true} />
+        <Radio size={ElementSize.Medium} />
+        <Radio size={ElementSize.Medium} value={false} />
+        <Radio size={ElementSize.Medium} value={true} />
       </div>
       <br />
       <div style={inlineStyles}>
-        <Radio size='medium' label='Lorem ipsum' onChange={onChange} value={true} />
-        <Radio size='medium' label='Lorem ipsum' onChange={onChange} value={false} />
-        <Radio size='medium' label='Lorem ipsum' onChange={onChange} value={value} />
+        <Radio size={ElementSize.Medium} label='Lorem ipsum' onChange={onChange} value={true} />
+        <Radio size={ElementSize.Medium} label='Lorem ipsum' onChange={onChange} value={false} />
+        <Radio size={ElementSize.Medium} label='Lorem ipsum' onChange={onChange} value={value} />
       </div>
       <br />
-      <Radio size='medium' label='Lorem ipsum' onChange={onChange} />
+      <Radio size={ElementSize.Medium} label='Lorem ipsum' onChange={onChange} />
 
       <p>Large</p>
       <div style={inlineStyles}>
-        <Radio size='large' disabled />
-        <Radio size='large' disabled value={false} />
-        <Radio size='large' disabled value={true} />
+        <Radio size={ElementSize.Large} disabled />
+        <Radio size={ElementSize.Large} disabled value={false} />
+        <Radio size={ElementSize.Large} disabled value={true} />
       </div>
       <br />
       <div style={inlineStyles}>
-        <Radio size='large' label='Lorem ipsum' onChange={onChange} disabled value={true} />
-        <Radio size='large' label='Lorem ipsum' onChange={onChange} disabled value={false} />
-        <Radio size='large' label='Lorem ipsum' onChange={onChange} disabled value={value} />
+        <Radio size={ElementSize.Large} label='Lorem ipsum' onChange={onChange} disabled value={true} />
+        <Radio size={ElementSize.Large} label='Lorem ipsum' onChange={onChange} disabled value={false} />
+        <Radio size={ElementSize.Large} label='Lorem ipsum' onChange={onChange} disabled value={value} />
       </div>
       <br />
-      <Radio size='large' label='Lorem ipsum' onChange={onChange} disabled />
+      <Radio size={ElementSize.Large} label='Lorem ipsum' onChange={onChange} disabled />
 
       <br />
       <div style={inlineStyles}>
-        <Radio size='large' />
-        <Radio size='large' value={false} />
-        <Radio size='large' value={true} />
+        <Radio size={ElementSize.Large} />
+        <Radio size={ElementSize.Large} value={false} />
+        <Radio size={ElementSize.Large} value={true} />
       </div>
       <br />
       <div style={inlineStyles}>
-        <Radio size='large' label='Lorem ipsum' onChange={onChange} value={true} />
-        <Radio size='large' label='Lorem ipsum' onChange={onChange} value={false} />
-        <Radio size='large' label='Lorem ipsum' onChange={onChange} value={value} />
+        <Radio size={ElementSize.Large} label='Lorem ipsum' onChange={onChange} value={true} />
+        <Radio size={ElementSize.Large} label='Lorem ipsum' onChange={onChange} value={false} />
+        <Radio size={ElementSize.Large} label='Lorem ipsum' onChange={onChange} value={value} />
       </div>
       <br />
-      <Radio size='large' label='Lorem ipsum' onChange={onChange} />
+      <Radio size={ElementSize.Large} label='Lorem ipsum' onChange={onChange} />
     </>
   );
 });

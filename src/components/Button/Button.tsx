@@ -1,9 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import styles from './button.module.scss';
+import { ElementSize } from '../../types';
 
 export interface ButtonProps {
-  size?: 'small' | 'medium' | 'large';
+  size?: ElementSize;
   variant?: 'primary' | 'secondary';
   disabled?: boolean;
 }
@@ -19,9 +20,9 @@ export const Button: React.FC<ButtonProps & React.ButtonHTMLAttributes<HTMLButto
     styles.Button,
     {
       [styles['Button--disabled']]: disabled,
-      [styles['Button--small']]: size === 'small',
-      [styles['Button--medium']]: size === 'medium',
-      [styles['Button--large']]: size === 'large',
+      [styles['Button--small']]: size === ElementSize.Small,
+      [styles['Button--medium']]: size === ElementSize.Medium,
+      [styles['Button--large']]: size === ElementSize.Large,
       [styles['Button--primary']]: variant === 'primary',
       [styles['Button--secondary']]: variant === 'secondary',
     },

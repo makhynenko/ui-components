@@ -1,11 +1,11 @@
 import React from 'react';
-import { Option, Size } from '../../types';
+import { Option, ElementSize } from '../../types';
 import { Checkbox } from '../Checkbox/Checkbox';
-import style from './checkboxGroup.module.scss';
+import styles from './checkboxGroup.module.scss';
 import classnames from 'classnames';
 
 export interface CheckboxGroupProps {
-  size?: Size;
+  size?: ElementSize;
   options: Option[];
   selectedValues: string[];
   onSelect: (selectedValues: string[]) => void;
@@ -28,9 +28,9 @@ export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
   };
 
   return (
-    <ul className={classnames(style.checkboxGroup, className)}>
+    <ul className={classnames(styles.checkboxGroup, className)}>
       {options.map((el) => (
-        <li className={style.checkboxItem} key={el.value}>
+        <li className={styles.checkboxItem} key={el.value}>
           <Checkbox
             label={el.label}
             disabled={el.disabled}
