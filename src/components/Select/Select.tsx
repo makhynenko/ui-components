@@ -1,14 +1,15 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import style from './select.module.scss';
-import { Option, Size } from '../../types';
+import styles from './select.module.scss';
+import { Option, ElementSize } from '../../types';
 import { Input } from '../Input';
+
 import classNames from 'classnames';
 
 export interface SelectProps {
   options: Option[];
   value?: string;
   onChange?: (value: string) => void;
-  size?: Size;
+  size?: ElementSize;
   className?: string;
 }
 
@@ -16,7 +17,7 @@ export const Select: React.FC<SelectProps> = ({
   options,
   value,
   onChange,
-  size = 'medium',
+  size = ElementSize.Medium,
   className,
 }) => {
   const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
@@ -56,31 +57,50 @@ export const Select: React.FC<SelectProps> = ({
     [onChange]
   );
 
-  const getOptionLabel = (options, value) => {
+  // TO CHECK
+  const getOptionLabel = useCallback((options, value) => {
     const selectedOption = options.find((el) => {
       return el.value === value;
     });
 
     return selectedOption?.label || '';
-  };
+  }, []);
 
-  const listItemClasses = classNames(style.selectListItem, {
-    [style['selectListItem--small']]: size === 'small',
-    [style['selectListItem--medium']]: size === 'medium',
-    [style['selectListItem--large']]: size === 'large',
-  });
+  // TO CHECK
+  const getListItemClasses = useCallback(
+    (value) => {
+      console.log('lllll');
+      return classNames(styles.selectListItem, {
+        [styles['selectListItem--small']]: size === ElementSize.Small,
+        [styles['selectListItem--medium']]: size === ElementSize.Medium,
+        [styles['selectListItem--large']]: size === ElementSize.Large,
+        [styles['selectListItem--isChosen']]: value === selectedOptionValue,
+      });
+    },
+    [selectedOptionValue, size]
+  );
 
-  const listClasses = classNames(style.optionsList, {
-    [style['optionsList--small']]: size === 'small',
-    [style['optionsList--medium']]: size === 'medium',
-    [style['optionsList--large']]: size === 'large',
+  // const getListItemClasses = (value) => {
+  //   console.log('lllll');
+  //   return classNames(styles.selectListItem, {
+  //     [styles['selectListItem--small']]: size === ElementSize.Small,
+  //     [styles['selectListItem--medium']]: size === ElementSize.Medium,
+  //     [styles['selectListItem--large']]: size === ElementSize.Large,
+  //     [styles['selectListItem--isChosen']]: value === selectedOptionValue,
+  //   });
+  // };
+
+  const listClasses = classNames(styles.optionsList, {
+    [styles['optionsList--small']]: size === ElementSize.Small,
+    [styles['optionsList--medium']]: size === ElementSize.Medium,
+    [styles['optionsList--large']]: size === ElementSize.Large,
   });
 
   const wrapperClasses = classNames(
-    style.componentWrapper,
+    styles.componentWrapper,
     {
-      [style['componentWrapper--selectOpen']]: isSelectOpen,
-      [style['componentWrapper--selectClose']]: !isSelectOpen,
+      [styles['componentWrapper--selectOpen']]: isSelectOpen,
+      [styles['componentWrapper--selectClose']]: !isSelectOpen,
     },
     className
   );
@@ -88,6 +108,7 @@ export const Select: React.FC<SelectProps> = ({
   return (
     <div className={wrapperClasses} ref={ref}>
       <Input
+        className={styles.inputWrapper}
         placeholder='select needed option'
         onFocus={openSelect}
         icon='chevronDown'
@@ -100,7 +121,7 @@ export const Select: React.FC<SelectProps> = ({
         <ul className={listClasses}>
           {options.map((el) => (
             <li
-              className={listItemClasses}
+              className={getListItemClasses(el.value)}
               data-item-value={el.value}
               key={el.value}
               onClick={onSelectItem}
