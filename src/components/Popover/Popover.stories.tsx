@@ -45,10 +45,10 @@ storiesOf('Popover', module).add('Default', () => {
   };
 
   const customDivStyle: React.CSSProperties = {
-    backgroundColor: '#3E7BFA',
+    backgroundColor: '#3e7bfa',
     borderRadius: '4px',
     padding: '8px 4px',
-    color: '#FFF',
+    color: '#fff',
     height: '48px',
     width: '132px',
     textAlign: 'center',
@@ -371,18 +371,18 @@ storiesOf('Popover', module).add('Default', () => {
 
         <Popover
           trigger={newSelectedTrigger}
-          backgroundColor='#60830D'
+          backgroundColor='#60830d'
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
-          <Button>#60830D</Button>
+          <Button>#60830d</Button>
         </Popover>
 
         <Popover
           trigger={newSelectedTrigger}
-          backgroundColor='#E933FF'
+          backgroundColor='#e933ff'
           content={<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>}
         >
-          <Button>#E933FF</Button>
+          <Button>#e933ff</Button>
         </Popover>
       </div>
 
