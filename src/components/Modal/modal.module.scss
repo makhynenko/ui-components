@@ -1,3 +1,47 @@
+@keyframes fade-in-bottom {
+  0% {
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+  }
+}
+
+@keyframes fade-in-overlay {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out-overlay {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 .ModalOverlay {
   position: fixed;
   top: 0;
@@ -9,6 +53,14 @@
   align-items: center;
   background-color: var(--modal-overlay-background-color);
 
+  &--In {
+    animation: fade-in-overlay 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  }
+
+  &--Out {
+    animation: fade-out-overlay 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
   .Modal {
     margin: 0 auto;
     max-width: 700px;
@@ -16,5 +68,13 @@
     background-color: var(--modal-background-color);
     padding: 16px;
     border-radius: 4px;
+
+    &--In {
+      animation: fade-in-bottom 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    }
+
+    &--Out {
+      animation: fade-out-bottom 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
   }
 }

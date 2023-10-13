@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import styles from './popover.module.scss';
 import { Popover as NpmPopover, ContentRenderer, ArrowContainer } from 'react-tiny-popover';
+import { PopoverAlign, PopoverPosition, PopoverTrigger } from '../../types';
 
 export interface PopoverProps {
   isOpen?: boolean;
-  trigger?: 'click' | 'hover';
+  trigger?: PopoverTrigger;
   content: JSX.Element | ContentRenderer;
   hasArrow?: boolean;
-  position?: 'top' | 'right' | 'bottom' | 'left';
+  position?: PopoverPosition;
   backgroundColor?: string;
-  align?: 'start' | 'center' | 'end';
+  align?: PopoverAlign;
   width?: string;
   offset?: number;
 }
@@ -33,11 +34,11 @@ const CustomComponent = React.forwardRef<HTMLDivElement, React.ComponentPropsWit
 
 export const Popover: React.FC<PopoverProps> = ({
   isOpen,
-  trigger = 'hover',
+  trigger = PopoverTrigger.Hover,
   content,
   hasArrow = 'true',
-  position = 'left',
-  align = 'center',
+  position = PopoverPosition.Left,
+  align = PopoverAlign.Center,
   backgroundColor = '#000',
   width = '400px',
   offset = 0,
@@ -45,23 +46,23 @@ export const Popover: React.FC<PopoverProps> = ({
 }) => {
   const [isPopoverOpen, setIsPopoverOpen] = useState<boolean>(false);
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     trigger === 'click' ? setIsPopoverOpen(!isPopoverOpen) : null;
-  };
+  }, [trigger, isPopoverOpen]);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = useCallback(() => {
     trigger === 'hover' ? setIsPopoverOpen(true) : null;
-  };
+  }, [trigger]);
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     trigger === 'hover' ? setIsPopoverOpen(false) : null;
-  };
+  }, [trigger]);
 
-  const countPaddings = (position) => {
-    return position === 'top' || position === 'bottom'
-      ? { padding: '8px 0' }
-      : { padding: '0 8px' };
-  };
+  const arrowContainerStyle = useMemo<React.CSSProperties>(
+    () =>
+      position === 'top' || position === 'bottom' ? { padding: '8px 0' } : { padding: '0 8px' },
+    [position]
+  );
 
   return (
     <NpmPopover
@@ -82,13 +83,13 @@ export const Popover: React.FC<PopoverProps> = ({
               popoverRect={popoverRect}
               arrowColor={backgroundColor}
               arrowSize={8}
-              style={countPaddings(position)}
+              style={arrowContainerStyle}
               className='popover-arrow-container'
               arrowClassName='popover-arrow PopoverArrow'
             >
               <div
                 className={styles.PopoverWrapper}
-                style={{ backgroundColor: `${backgroundColor}`, color: '#fff' }}
+                style={{ backgroundColor: `${backgroundColor}`, color: '#FFF' }}
               >
                 {content}
               </div>
@@ -98,7 +99,7 @@ export const Popover: React.FC<PopoverProps> = ({
           return (
             <div
               className={styles.PopoverWrapper}
-              style={{ backgroundColor: `${backgroundColor}`, color: '#fff' }}
+              style={{ backgroundColor: `${backgroundColor}`, color: '#FFF' }}
             >
               {content}
             </div>
