@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import styles from './popover.module.scss';
 import { Popover as NpmPopover, ContentRenderer, ArrowContainer } from 'react-tiny-popover';
 import { PopoverAlign, PopoverPosition, PopoverTrigger } from '../../types';
