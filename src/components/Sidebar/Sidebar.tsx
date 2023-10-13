@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import classnames from 'classnames';
 import style from './sidebar.module.scss';
 
@@ -19,21 +19,40 @@ export const Sidebar: React.FC<SidebarProps> = ({
   direction = 'left',
   width = '200px',
 }) => {
-  const sidebarClasses = classnames(
-    style.Sidebar,
-    {
-      [style['Sidebar--isOpen']]: isOpen,
-    },
-    className
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    } else {
+      setTimeout(() => {
+        setIsMounted(false);
+      }, 300);
+    }
+  }, [isOpen]);
+
+  const sidebarClasses = useMemo(
+    () =>
+      classnames(
+        style.Sidebar,
+        {
+          [style['sidebarClasses--In']]: isOpen,
+          [style['sidebarClasses--Out']]: !isOpen,
+        },
+        className
+      ),
+    [isOpen, className]
   );
 
-  const sidebarOverlayClasses = classnames(
-    style.SidebarOverlay,
-    {
-      [style['SidebarOverlay--left']]: direction === 'left',
-      [style['SidebarOverlay--right']]: direction === 'right',
-    },
-    className
+  const sidebarOverlayClasses = useMemo(
+    () =>
+      classnames(style.SidebarOverlay, {
+        [style['SidebarOverlay--In']]: isOpen,
+        [style['SidebarOverlay--Out']]: !isOpen,
+        [style['SidebarOverlay--left']]: direction === 'left',
+        [style['SidebarOverlay--right']]: direction === 'right',
+      }),
+    [isOpen, direction]
   );
 
   const handleOutsideClick = (e) => {
@@ -41,16 +60,20 @@ export const Sidebar: React.FC<SidebarProps> = ({
   };
 
   return (
-    <div className={sidebarOverlayClasses} onClick={handleOutsideClick}>
-      <div
-        className={sidebarClasses}
-        style={{ maxWidth: width }}
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-      >
-        {children}
-      </div>
-    </div>
+    <>
+      {isMounted ? (
+        <div className={sidebarOverlayClasses} onClick={handleOutsideClick}>
+          <div
+            className={sidebarClasses}
+            style={{ maxWidth: width }}
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            {children}
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 };

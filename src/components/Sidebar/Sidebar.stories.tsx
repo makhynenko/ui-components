@@ -48,7 +48,6 @@ storiesOf('Sidebar', module).add('Default', () => {
       </div>
 
       <Button onClick={openSidebar}>Open sidebar</Button>
-      {isOpen ? (
         <Sidebar
           width={newMaxWidth}
           direction={newDirection}
@@ -69,7 +68,6 @@ storiesOf('Sidebar', module).add('Default', () => {
             software like Aldus PageMaker including versions of Lorem Ipsum.
           </p>
         </Sidebar>
-      ) : null}
     </>
   );
 });

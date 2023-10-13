@@ -58,10 +58,10 @@ export const Popover: React.FC<PopoverProps> = ({
     trigger === 'hover' ? setIsPopoverOpen(false) : null;
   }, [trigger]);
 
-  const arrowContainerStyle = useMemo<React.CSSProperties>(
-    () =>
+  const arrowContainerStyle = useCallback(
+    (position) =>
       position === 'top' || position === 'bottom' ? { padding: '8px 0' } : { padding: '0 8px' },
-    [position]
+    []
   );
 
   return (
@@ -83,7 +83,7 @@ export const Popover: React.FC<PopoverProps> = ({
               popoverRect={popoverRect}
               arrowColor={backgroundColor}
               arrowSize={8}
-              style={arrowContainerStyle}
+              style={arrowContainerStyle(position)}
               className='popover-arrow-container'
               arrowClassName='popover-arrow PopoverArrow'
             >
