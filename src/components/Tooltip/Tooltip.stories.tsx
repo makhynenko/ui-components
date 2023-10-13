@@ -13,10 +13,10 @@ storiesOf('Tooltip', module).add('Default', () => {
   const [ownWidth, setOwnWidth] = useState('300px');
 
   const customStyle: React.CSSProperties = {
-    backgroundColor: '#3E7BFA',
+    backgroundColor: '#3e7bfa',
     borderRadius: '4px',
     padding: '8px 4px',
-    color: '#FFF',
+    color: '#fff',
     width: '132px',
     textAlign: 'center',
     lineHeight: '24px',

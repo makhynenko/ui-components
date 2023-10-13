@@ -44,10 +44,10 @@ storiesOf('Popover', module).add('Default', () => {
   };
 
   const customDivStyle: React.CSSProperties = {
-    backgroundColor: '#3E7BFA',
+    backgroundColor: '#3e7bfa',
     borderRadius: '4px',
     padding: '8px 4px',
-    color: '#FFF',
+    color: '#fff',
     height: '48px',
     width: '132px',
     textAlign: 'center',
