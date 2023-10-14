@@ -1,24 +1,52 @@
-@keyframes fade-in-bottom {
+@keyframes scale-in-hor-left {
   0% {
-    -webkit-transform: translateY(50px);
-    transform: translateY(50px);
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    opacity: 1;
   }
-
   100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+    transform: scaleX(1);
+    transform-origin: 0 0;
+    opacity: 1;
   }
 }
 
-@keyframes fade-out-bottom {
+@keyframes scale-out-hor-left {
   0% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+    transform: scaleX(1);
+    transform-origin: 0 0;
+    opacity: 1;
   }
-
   100% {
-    -webkit-transform: translateY(50px);
-    transform: translateY(50px);
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in-hor-right {
+  0% {
+    transform: scaleX(0);
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes scale-out-hor-right {
+  0% {
+    transform: scaleX(1);
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: 100% 100%;
+    opacity: 1;
   }
 }
 
@@ -60,7 +88,7 @@
   }
 
   &--In {
-    animation: fade-in-overlay 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    animation: fade-in-overlay 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
 
   &--Out {
@@ -74,12 +102,24 @@
     padding: 16px;
     border-radius: 4px;
 
-    &--In {
-      animation: fade-in-bottom 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    &--left {
+      &.Sidebar--In {
+        animation: scale-in-hor-left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      }
+
+      &.Sidebar--Out {
+        animation: scale-out-hor-left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      }
     }
 
-    &--Out {
-      animation: fade-out-bottom 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    &--right {
+      &.Sidebar--In {
+        animation: scale-in-hor-right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      }
+
+      &.Sidebar--Out {
+        animation: scale-out-hor-right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      }
     }
   }
 }

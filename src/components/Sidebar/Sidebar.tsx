@@ -36,12 +36,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
       classnames(
         style.Sidebar,
         {
-          [style['sidebarClasses--In']]: isOpen,
-          [style['sidebarClasses--Out']]: !isOpen,
+          [style['Sidebar--In']]: isOpen,
+          [style['Sidebar--Out']]: !isOpen,
+          [style['Sidebar--left']]: direction === 'left',
+          [style['Sidebar--right']]: direction === 'right',
         },
         className
       ),
-    [isOpen, className]
+    [isOpen, direction, className]
   );
 
   const sidebarOverlayClasses = useMemo(
