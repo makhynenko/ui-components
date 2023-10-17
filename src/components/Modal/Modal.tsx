@@ -18,7 +18,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, children, onClose, classNa
     } else {
       setTimeout(() => {
         setIsMounted(false);
-      }, 1000);
+      }, 300);
     }
   }, [isOpen]);
 
