@@ -25,9 +25,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
     if (isOpen) {
       setIsMounted(true);
     } else {
-      setTimeout(() => {
-        setIsMounted(false);
-      }, 300);
+      // setTimeout(() => {
+      setIsMounted(false);
+      // }, 300);
     }
   }, [isOpen]);
 
