@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.1](https://github.com/makhynenko/ui-components/compare/v1.4.0...v1.4.1) (2023-10-18)
+
+
+### Bug Fixes
+
+* remove animation ([#21](https://github.com/makhynenko/ui-components/issues/21)) ([f07f7f9](https://github.com/makhynenko/ui-components/commit/f07f7f95fcaa4e037e434cee9b049a0b57c1b3e1))
+
 ## [1.4.0](https://github.com/makhynenko/ui-components/compare/v1.3.0...v1.4.0) (2023-10-13)
 
 
