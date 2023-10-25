@@ -4,6 +4,7 @@ import { Sidebar } from './Sidebar';
 import { Button } from '../Button';
 import { Input } from '../Input';
 import { RadioGroup } from '../RadioGroup';
+import { ElementSize } from '../../types';
 
 storiesOf('Sidebar', module).add('Default', () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -43,7 +44,7 @@ storiesOf('Sidebar', module).add('Default', () => {
           options={directionOptions}
           selectedValue={newDirection}
           onSelect={onPositionSelect}
-          size='large'
+          size={ElementSize.Large}
         />
       </div>
 
@@ -54,7 +55,7 @@ storiesOf('Sidebar', module).add('Default', () => {
           isOpen={isOpen}
           onClose={closeSidebar}
         >
-          <Button onClick={closeSidebar} size='small'>
+          <Button onClick={closeSidebar} size={ElementSize.Small}>
             Close
           </Button>
           <h2>What is Lorem Ipsum?</h2>
