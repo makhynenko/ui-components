@@ -1,6 +1,6 @@
 import React, { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
 import classnames from 'classnames';
-import style from './modal.module.scss';
+import styles from './modal.module.scss';
 
 export interface ModalProps {
   className?: string;
@@ -16,19 +16,19 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, children, onClose, classNa
     if (isOpen) {
       setIsMounted(true);
     } else {
-      setTimeout(() => {
-        setIsMounted(false);
-      }, 1000);
+      // setTimeout(() => {
+      setIsMounted(false);
+      // }, 300);
     }
   }, [isOpen]);
 
   const modalClasses = useMemo(
     () =>
       classnames(
-        style.Modal,
+        styles.Modal,
         {
-          [style['Modal--In']]: isOpen,
-          [style['Modal--Out']]: !isOpen,
+          [styles['Modal--In']]: isOpen,
+          [styles['Modal--Out']]: !isOpen,
         },
         className
       ),
@@ -37,9 +37,9 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, children, onClose, classNa
 
   const overlayClasses = useMemo(
     () =>
-      classnames(style.ModalOverlay, {
-        [style['ModalOverlay--In']]: isOpen,
-        [style['ModalOverlay--Out']]: !isOpen,
+      classnames(styles.ModalOverlay, {
+        [styles['ModalOverlay--In']]: isOpen,
+        [styles['ModalOverlay--Out']]: !isOpen,
       }),
     [isOpen]
   );

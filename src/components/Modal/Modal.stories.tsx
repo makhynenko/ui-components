@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Modal } from './Modal';
 import { Button } from '../Button';
+import { ElementSize } from '../../types';
 
 storiesOf('Modal', module).add('Default', () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -18,7 +19,7 @@ storiesOf('Modal', module).add('Default', () => {
     <>
       <Button onClick={openModal}>Open modal</Button>
       <Modal isOpen={isOpen} onClose={closeModal}>
-        <Button size='small' onClick={closeModal}>
+        <Button size={ElementSize.Small} onClick={closeModal}>
           Close
         </Button>
         <h2>What is Lorem Ipsum?</h2>
