@@ -7,6 +7,22 @@
   font-size: 14px;
   background-color: var(--button-primary-background);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  svg {
+    width: 14px;
+    height: 14px;
+
+    path {
+      stroke: var(--button-primary-text-color);
+    }
+  }
+
+  // .innerContentWrapper {
+
+  // }
 
   &:hover {
     background-color: var(--button-primary-background-hover);
@@ -21,11 +37,31 @@
   &.Button--small {
     height: 24px;
     font-size: 12px;
+    gap: 4px;
+
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    // & .innerContentWrapper {
+    //   gap: 4px;
+    // }
   }
 
   &.Button--large {
     height: 40px;
     font-size: 16px;
+    gap: 8px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    // & .innerContentWrapper {
+    //   gap: 8px;
+    // }
   }
 
   &.Button--secondary {
@@ -33,12 +69,41 @@
     color: var(--button-secondary-text-color);
     border-color: var(--button-secondary-border-color);
 
+    svg {
+      path {
+        stroke: var(--button-secondary-text-color);
+      }
+    }
+
     &:hover {
       background-color: var(--button-secondary-background-hover);
     }
 
     &:active {
       background-color: var(--button-secondary-background-active);
+    }
+  }
+
+  &.Button--ghost {
+    height: fit-content;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: var(--button-ghost-text-color);
+
+    svg {
+      path {
+        stroke: var(--button-ghost-text-color);
+      }
+    }
+
+    &:hover {
+      color: var(--button-ghost-text-color-hover);
+      svg {
+        path {
+          stroke: var(--button-ghost-text-color-hover);
+        }
+      }
     }
   }
 
