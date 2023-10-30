@@ -79,11 +79,7 @@ storiesOf('Tooltip', module).add('Default', () => {
       <p style={{ fontWeight: 'bold' }}>
         Choose needed width for further tooltip - use number with `px`
       </p>
-      <Input
-        placeholder={'Max-width: 400px'}
-        size={ElementSize.Medium}
-        onChange={handleWidthChange}
-      />
+      <Input placeholder={'Max-width: 400px'} size={ElementSize.Medium} onChange={handleWidthChange} />
 
       <div style={wrapperStyle}>
         <Tooltip

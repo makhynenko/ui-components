@@ -1,0 +1,103 @@
+.InputWrapper {
+  display: inline-block;
+  position: relative;
+  height: fit-content;
+
+  .Textarea {
+    box-sizing: border-box;
+    border: 1px solid var(--input-border-color);
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    overflow: hidden;
+    resize: vertical;
+
+    &::placeholder {
+      color: var(--input-placeholder-color);
+    }
+
+    ~ .Icon {
+      margin: auto 0;
+      position: absolute;
+      top: 6px;
+
+      path {
+        stroke: var(--input-icon-color);
+      }
+
+      &--clearable {
+        right: 6px;
+        cursor: pointer;
+      }
+    }
+
+    &--invalid {
+      border: 1px solid var(--input-border-color-invalid);
+      outline: none;
+
+      ~ .Icon {
+        path {
+          stroke: var(--input-icon-color-invalid);
+        }
+      }
+    }
+
+    &:focus {
+      border: 1px solid var(--input-border-color-active);
+      outline: none;
+
+      ~ .Icon {
+        path {
+          stroke: var(--input-icon-color-active);
+        }
+      }
+    }
+
+    &--small {
+      line-height: 14px;
+      font-size: 12px;
+      min-height: 54px;
+
+      &.Textarea--clearable {
+        padding-right: 22px;
+      }
+    }
+
+    &--medium {
+      line-height: 16px;
+      font-size: 14px;
+      min-height: 60px;
+
+      &.Textarea--clearable {
+        padding-right: 22px;
+      }
+    }
+
+    &--large {
+      line-height: 18px;
+      font-size: 16px;
+      min-height: 66px;
+
+      &.Textarea--clearable {
+        padding-right: 32px;
+      }
+    }
+
+    &--disabled {
+      background-color: var(--input-background-color-disabled);
+      border: 1px solid var(--input-border-color-disabled);
+
+      ~ .Icon--clearable {
+        pointer-events: none;
+      }
+
+      &::placeholder {
+        color: var(--input-placeholder-color-disabled);
+      }
+    }
+
+    // &--clearable {
+    //   padding-right: 28px;
+    // }
+  }
+}
