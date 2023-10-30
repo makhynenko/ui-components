@@ -9,6 +9,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
 
   svg {
@@ -19,10 +20,6 @@
       stroke: var(--button-primary-text-color);
     }
   }
-
-  // .innerContentWrapper {
-
-  // }
 
   &:hover {
     background-color: var(--button-primary-background-hover);
@@ -43,10 +40,6 @@
       width: 12px;
       height: 12px;
     }
-
-    // & .innerContentWrapper {
-    //   gap: 4px;
-    // }
   }
 
   &.Button--large {
@@ -58,10 +51,6 @@
       width: 16px;
       height: 16px;
     }
-
-    // & .innerContentWrapper {
-    //   gap: 8px;
-    // }
   }
 
   &.Button--secondary {
@@ -85,7 +74,6 @@
   }
 
   &.Button--ghost {
-    height: fit-content;
     padding: 0;
     border: none;
     background-color: transparent;
@@ -99,6 +87,7 @@
 
     &:hover {
       color: var(--button-ghost-text-color-hover);
+
       svg {
         path {
           stroke: var(--button-ghost-text-color-hover);

@@ -1,168 +1,230 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Button } from './Button';
 import { ElementSize } from '../../types';
 import { Icons } from '../Icons';
+import { Input } from '../Input';
 
-storiesOf('Button', module).add('Default', () => (
-  <>
-    <p>no att</p>
-    <Button>Button default</Button>
+storiesOf('Button', module).add('Default', () => {
+  const [width, setWidth] = useState<string>();
 
-    <div className='regular'>
-      <p>variant only</p>
-      <Button variant='primary'>Button pr</Button>
-      <Button variant='secondary'>Button sec</Button>
+  const handleInputChange = (e) => {
+    setWidth(e.target.value);
+  };
 
-      <p>size only</p>
-      <Button size={ElementSize.Small}>Button sm</Button>
-      <Button size={ElementSize.Medium}>Button md</Button>
-      <Button size={ElementSize.Large}>Button lg</Button>
+  const wrapperStyles: React.CSSProperties = {
+    display: 'flex',
+    gap: '12px',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+  };
 
-      <p>size and variant</p>
-      <p>primary</p>
-      <Button size={ElementSize.Small} variant='primary'>
-        Button sm pr
-      </Button>
-      <Button size={ElementSize.Medium} variant='primary'>
-        Button md pr
-      </Button>
-      <Button size={ElementSize.Large} variant='primary'>
-        Button lg pr
-      </Button>
+  return (
+    <>
+      <p>no att, default width=`fit-content`</p>
+      <Button>Button default</Button>
 
-      <p>secondary</p>
-      <Button size={ElementSize.Small} variant='secondary'>
-        Button sm sec
-      </Button>
-      <Button size={ElementSize.Medium} variant='secondary'>
-        Button md sec
-      </Button>
-      <Button size={ElementSize.Large} variant='secondary'>
-        Button lg sec
-      </Button>
+      <p>You can control width of button (px or %)</p>
+      <Input placeholder='Pls enter button width' onChange={handleInputChange} />
 
-      <p>ghost</p>
-      <Button size={ElementSize.Small} variant='ghost'>
-        Button sm ghost
-      </Button>
-      <Button size={ElementSize.Medium} variant='ghost'>
-        Button md ghost
-      </Button>
-      <Button size={ElementSize.Large} variant='ghost'>
-        Button lg ghost
-      </Button>
-    </div>
+      <div className='regular'>
+        <p>variant only</p>
+        <div style={wrapperStyles}>
+          <Button variant='primary' width={width}>
+            Button pr
+          </Button>
+          <Button variant='secondary' width={width}>
+            Button sec
+          </Button>
+        </div>
 
-    <div className='disabled'>
-      <p>only dis</p>
-      <Button disabled>Button dis</Button>
+        <p>size only</p>
+        <div style={wrapperStyles}>
+          <Button size={ElementSize.Small} width={width}>
+            Button sm
+          </Button>
+          <Button size={ElementSize.Medium} width={width}>
+            Button md
+          </Button>
+          <Button size={ElementSize.Large} width={width}>
+            Button lg
+          </Button>
+        </div>
 
-      <p>disabled with variant only</p>
-      <Button disabled variant='primary'>
-        Button pr
-      </Button>
-      <Button disabled variant='secondary'>
-        Button sec
-      </Button>
+        <p>size and variant</p>
+        <p>primary</p>
+        <div style={wrapperStyles}>
+          <Button size={ElementSize.Small} variant='primary' width={width}>
+            Button sm pr
+          </Button>
+          <Button size={ElementSize.Medium} variant='primary' width={width}>
+            Button md pr
+          </Button>
+          <Button size={ElementSize.Large} variant='primary' width={width}>
+            Button lg pr
+          </Button>
+        </div>
 
-      <p>disabled with size only</p>
-      <Button disabled size={ElementSize.Small}>
-        Button sm
-      </Button>
-      <Button disabled size={ElementSize.Medium}>
-        Button md
-      </Button>
-      <Button disabled size={ElementSize.Large}>
-        Button lg
-      </Button>
+        <p>secondary</p>
+        <div style={wrapperStyles}>
+          <Button size={ElementSize.Small} variant='secondary' width={width}>
+            Button sm sec
+          </Button>
+          <Button size={ElementSize.Medium} variant='secondary' width={width}>
+            Button md sec
+          </Button>
+          <Button size={ElementSize.Large} variant='secondary' width={width}>
+            Button lg sec
+          </Button>
+        </div>
+        <p>ghost</p>
+        <div style={wrapperStyles}>
+          <Button size={ElementSize.Small} variant='ghost' width={width}>
+            Button sm ghost
+          </Button>
+          <Button size={ElementSize.Medium} variant='ghost' width={width}>
+            Button md ghost
+          </Button>
+          <Button size={ElementSize.Large} variant='ghost' width={width}>
+            Button lg ghost
+          </Button>
+        </div>
+      </div>
 
-      <p>disabled with size and variant</p>
-      <p>primary</p>
-      <Button disabled size={ElementSize.Small} variant='primary'>
-        Button sm pr
-      </Button>
-      <Button disabled size={ElementSize.Medium} variant='primary'>
-        Button md pr
-      </Button>
-      <Button disabled size={ElementSize.Large} variant='primary'>
-        Button lg pr
-      </Button>
+      <div className='disabled'>
+        <p>only dis</p>
+        <div style={wrapperStyles}>
+          <Button disabled width={width}>
+            Button dis
+          </Button>
+        </div>
 
-      <p>secondary</p>
-      <Button disabled size={ElementSize.Small} variant='secondary'>
-        Button sm sec
-      </Button>
-      <Button disabled size={ElementSize.Medium} variant='secondary'>
-        Button md sec
-      </Button>
-      <Button disabled size={ElementSize.Large} variant='secondary'>
-        Button lg sec
-      </Button>
+        <p>disabled with variant only</p>
+        <div style={wrapperStyles}>
+          <Button disabled variant='primary' width={width}>
+            Button pr
+          </Button>
+          <Button disabled variant='secondary' width={width}>
+            Button sec
+          </Button>
+        </div>
 
-      <p>secondary</p>
-      <Button disabled size={ElementSize.Small} variant='ghost'>
-        Button sm sec
-      </Button>
-      <Button disabled size={ElementSize.Medium} variant='ghost'>
-        Button md sec
-      </Button>
-      <Button disabled size={ElementSize.Large} variant='ghost'>
-        Button lg sec
-      </Button>
+        <p>disabled with size only</p>
+        <div style={wrapperStyles}>
+          <Button disabled size={ElementSize.Small} width={width}>
+            Button sm
+          </Button>
+          <Button disabled size={ElementSize.Medium} width={width}>
+            Button md
+          </Button>
+          <Button disabled size={ElementSize.Large} width={width}>
+            Button lg
+          </Button>
+        </div>
 
-      <p>with Icon</p>
-      <Button variant='primary'>
-        <Icons name='burger' />
-        Button pr
-      </Button>
-      <Button variant='secondary'>
-        <Icons name='download' />
-        Button sec
-      </Button>
+        <p>disabled with size and variant</p>
+        <p>primary</p>
+        <div style={wrapperStyles}>
+          <Button disabled size={ElementSize.Small} variant='primary' width={width}>
+            Button sm pr
+          </Button>
+          <Button disabled size={ElementSize.Medium} variant='primary' width={width}>
+            Button md pr
+          </Button>
+          <Button disabled size={ElementSize.Large} variant='primary' width={width}>
+            Button lg pr
+          </Button>
+        </div>
 
-      <p>size and variant</p>
-      <p>primary</p>
-      <Button size={ElementSize.Small} variant='primary'>
-        Button sm pr
-        <Icons name='archive' />
-      </Button>
-      <Button size={ElementSize.Medium} variant='primary'>
-        Button md pr
-        <Icons name='archive' />
-      </Button>
-      <Button size={ElementSize.Large} variant='primary'>
-        Button lg pr
-        <Icons name='archive' />
-      </Button>
+        <p>secondary</p>
+        <div style={wrapperStyles}>
+          <Button disabled size={ElementSize.Small} variant='secondary' width={width}>
+            Button sm sec
+          </Button>
+          <Button disabled size={ElementSize.Medium} variant='secondary' width={width}>
+            Button md sec
+          </Button>
+          <Button disabled size={ElementSize.Large} variant='secondary' width={width}>
+            Button lg sec
+          </Button>
+        </div>
 
-      <p>secondary</p>
-      <Button size={ElementSize.Small} variant='secondary'>
-        <Icons name='settings' />
-        Button sm sec
-      </Button>
-      <Button size={ElementSize.Medium} variant='secondary'>
-        <Icons name='settings' />
-        Button md sec
-      </Button>
-      <Button size={ElementSize.Large} variant='secondary'>
-        <Icons name='settings' />
-        Button lg sec
-      </Button>
+        <p>secondary</p>
+        <div style={wrapperStyles}>
+          <Button disabled size={ElementSize.Small} variant='ghost' width={width}>
+            Button sm sec
+          </Button>
+          <Button disabled size={ElementSize.Medium} variant='ghost' width={width}>
+            Button md sec
+          </Button>
+          <Button disabled size={ElementSize.Large} variant='ghost' width={width}>
+            Button lg sec
+          </Button>
+        </div>
+      </div>
 
-      <p>ghost</p>
-      <Button size={ElementSize.Small} variant='ghost'>
-      <Icons name='plus' />
-        Button sm ghost
-      </Button>
-      <Button size={ElementSize.Medium} variant='ghost'>
-      <Icons name='plus' />
-        Button md ghost
-      </Button>
-      <Button size={ElementSize.Large} variant='ghost'>
-      <Icons name='plus' />
-        Button lg ghost
-      </Button>
-    </div>
-  </>
-));
+      <div className='withIcons'>
+        <p>with Icon</p>
+        <div style={wrapperStyles}>
+          <Button variant='primary' width={width}>
+            <Icons name='burger' />
+            Button pr
+          </Button>
+          <Button variant='secondary' width={width}>
+            <Icons name='download' />
+            Button sec
+          </Button>
+        </div>
+
+        <p>size and variant</p>
+        <p>primary</p>
+        <div style={wrapperStyles}>
+          <Button size={ElementSize.Small} variant='primary' width={width}>
+            Button sm pr
+            <Icons name='archive' />
+          </Button>
+          <Button size={ElementSize.Medium} variant='primary' width={width}>
+            Button md pr
+            <Icons name='archive' />
+          </Button>
+          <Button size={ElementSize.Large} variant='primary' width={width}>
+            Button lg pr
+            <Icons name='archive' />
+          </Button>
+        </div>
+
+        <p>secondary</p>
+        <div style={wrapperStyles}>
+          <Button size={ElementSize.Small} variant='secondary' width={width}>
+            <Icons name='settings' />
+            Button sm sec
+          </Button>
+          <Button size={ElementSize.Medium} variant='secondary' width={width}>
+            <Icons name='settings' />
+            Button md sec
+          </Button>
+          <Button size={ElementSize.Large} variant='secondary' width={width}>
+            <Icons name='settings' />
+            Button lg sec
+          </Button>
+        </div>
+
+        <p>ghost</p>
+        <div style={wrapperStyles}>
+          <Button size={ElementSize.Small} variant='ghost' width={width}>
+            <Icons name='plus' />
+            Button sm ghost
+          </Button>
+          <Button size={ElementSize.Medium} variant='ghost' width={width}>
+            <Icons name='plus' />
+            Button md ghost
+          </Button>
+          <Button size={ElementSize.Large} variant='ghost' width={width}>
+            <Icons name='plus' />
+            Button lg ghost
+          </Button>
+        </div>
+      </div>
+    </>
+  );
+});

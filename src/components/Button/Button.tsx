@@ -7,6 +7,7 @@ export interface ButtonProps {
   size?: ElementSize;
   variant?: 'primary' | 'secondary' | 'ghost';
   disabled?: boolean;
+  width?: string;
 }
 
 export const Button: React.FC<ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>> = ({
@@ -14,6 +15,7 @@ export const Button: React.FC<ButtonProps & React.ButtonHTMLAttributes<HTMLButto
   size,
   variant,
   className,
+  width = 'fit-content',
   ...props
 }) => {
   const classes = classnames(
@@ -31,8 +33,7 @@ export const Button: React.FC<ButtonProps & React.ButtonHTMLAttributes<HTMLButto
   );
 
   return (
-    <button {...props} className={classes} disabled={disabled}>
-      {/* <div className={styles.innerContentWrapper}>{props.children}</div> */}
+    <button {...props} className={classes} disabled={disabled} style={{ width: width }}>
       {props.children}
     </button>
   );
