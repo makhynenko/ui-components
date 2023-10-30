@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import classnames from 'classnames';
-import style from './sidebar.module.scss';
+import styles from './sidebar.module.scss';
 
 export interface SidebarProps {
   className?: string;
@@ -34,12 +34,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const sidebarClasses = useMemo(
     () =>
       classnames(
-        style.Sidebar,
+        styles.Sidebar,
         {
-          [style['Sidebar--In']]: isOpen,
-          [style['Sidebar--Out']]: !isOpen,
-          [style['Sidebar--left']]: direction === 'left',
-          [style['Sidebar--right']]: direction === 'right',
+          [styles['Sidebar--In']]: isOpen,
+          [styles['Sidebar--Out']]: !isOpen,
+          [styles['Sidebar--left']]: direction === 'left',
+          [styles['Sidebar--right']]: direction === 'right',
         },
         className
       ),
@@ -48,11 +48,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
   const sidebarOverlayClasses = useMemo(
     () =>
-      classnames(style.SidebarOverlay, {
-        [style['SidebarOverlay--In']]: isOpen,
-        [style['SidebarOverlay--Out']]: !isOpen,
-        [style['SidebarOverlay--left']]: direction === 'left',
-        [style['SidebarOverlay--right']]: direction === 'right',
+      classnames(styles.SidebarOverlay, {
+        [styles['SidebarOverlay--In']]: isOpen,
+        [styles['SidebarOverlay--Out']]: !isOpen,
+        [styles['SidebarOverlay--left']]: direction === 'left',
+        [styles['SidebarOverlay--right']]: direction === 'right',
       }),
     [isOpen, direction]
   );
