@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/makhynenko/ui-components/compare/v1.4.1...v1.5.0) (2023-10-30)
+
+
+### Features
+
+* create textarea component and change input ([#23](https://github.com/makhynenko/ui-components/issues/23)) ([197632c](https://github.com/makhynenko/ui-components/commit/197632c77d4435b7c20e2aa543cad124eeff7a60))
+
 ### [1.4.1](https://github.com/makhynenko/ui-components/compare/v1.4.0...v1.4.1) (2023-10-18)
 
 
