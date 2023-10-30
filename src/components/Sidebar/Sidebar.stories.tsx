@@ -36,7 +36,7 @@ storiesOf('Sidebar', module).add('Default', () => {
     <>
       <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
         <p>Try your max width - use number with `px` </p>
-        <Input placeholder='Max-width: 400px' onChange={handleMaxWidthChange} />
+        <Input placeholder='Max-width: 400px' onChange={handleMaxWidthChange} width='250px' />
       </div>
       <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
         <p>Try different directions:</p>
@@ -49,26 +49,21 @@ storiesOf('Sidebar', module).add('Default', () => {
       </div>
 
       <Button onClick={openSidebar}>Open sidebar</Button>
-        <Sidebar
-          width={newMaxWidth}
-          direction={newDirection}
-          isOpen={isOpen}
-          onClose={closeSidebar}
-        >
-          <Button onClick={closeSidebar} size={ElementSize.Small}>
-            Close
-          </Button>
-          <h2>What is Lorem Ipsum?</h2>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-            has been the industrys standard dummy text ever since the 1500s, when an unknown printer
-            took a galley of type and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting, remaining
-            essentially unchanged. It was popularised in the 1960s with the release of Letraset
-            sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-            software like Aldus PageMaker including versions of Lorem Ipsum.
-          </p>
-        </Sidebar>
+      <Sidebar width={newMaxWidth} direction={newDirection} isOpen={isOpen} onClose={closeSidebar}>
+        <Button onClick={closeSidebar} size={ElementSize.Small}>
+          Close
+        </Button>
+        <h2>What is Lorem Ipsum?</h2>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industrys standard dummy text ever since the 1500s, when an unknown printer took
+          a galley of type and scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting, remaining essentially
+          unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+          Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+          PageMaker including versions of Lorem Ipsum.
+        </p>
+      </Sidebar>
     </>
   );
 });

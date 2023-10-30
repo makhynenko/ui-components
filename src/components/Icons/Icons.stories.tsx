@@ -26,8 +26,12 @@ storiesOf('Icons', module).add('Default', () => {
 
   return (
     <>
-      <Input placeholder={'Please insert color'} onChange={onColorChange} />
-      <Input placeholder={'Please insert size (number only)'} onChange={onSizeChange} />
+      <Input placeholder={'Please insert color'} onChange={onColorChange} width='250px' />
+      <Input
+        placeholder={'Please insert size (number only)'}
+        onChange={onSizeChange}
+        width='250px'
+      />
       <ul className={styles.iconsList}>
         <li className={styles.iconsItem}>
           <Icons name='burger' color={newColor} size={newSize} />

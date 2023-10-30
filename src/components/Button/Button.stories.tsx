@@ -25,7 +25,7 @@ storiesOf('Button', module).add('Default', () => {
       <Button>Button default</Button>
 
       <p>You can control width of button (px or %)</p>
-      <Input placeholder='Pls enter button width' onChange={handleInputChange} />
+      <Input placeholder='Pls enter button width' onChange={handleInputChange} width='250px'/>
 
       <div className='regular'>
         <p>variant only</p>
