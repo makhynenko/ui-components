@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.5.3](https://github.com/makhynenko/ui-components/compare/v1.5.2...v1.5.3) (2023-10-31)
+
+
+### Bug Fixes
+
+* add style to button ([#25](https://github.com/makhynenko/ui-components/issues/25)) ([83c348d](https://github.com/makhynenko/ui-components/commit/83c348d2a087348c17681b9dbcb6e4f967b5a6ea))
+
 ### [1.5.2](https://github.com/makhynenko/ui-components/compare/v1.5.1...v1.5.2) (2023-10-31)
 
 
