@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.5.2](https://github.com/makhynenko/ui-components/compare/v1.5.1...v1.5.2) (2023-10-31)
+
+
+### Bug Fixes
+
+* added ghost button  ([#24](https://github.com/makhynenko/ui-components/issues/24)) ([e631111](https://github.com/makhynenko/ui-components/commit/e63111112d286e1ac8d3b624fb63b433ad214ee8))
+
 ### [1.5.1](https://github.com/makhynenko/ui-components/compare/v1.5.0...v1.5.1) (2023-10-30)
 
 
