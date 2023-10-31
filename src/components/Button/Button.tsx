@@ -5,8 +5,9 @@ import { ElementSize } from '../../types';
 
 export interface ButtonProps {
   size?: ElementSize;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'ghost';
   disabled?: boolean;
+  width?: string;
 }
 
 export const Button: React.FC<ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>> = ({
@@ -14,6 +15,7 @@ export const Button: React.FC<ButtonProps & React.ButtonHTMLAttributes<HTMLButto
   size,
   variant,
   className,
+  width = 'fit-content',
   ...props
 }) => {
   const classes = classnames(
@@ -25,12 +27,13 @@ export const Button: React.FC<ButtonProps & React.ButtonHTMLAttributes<HTMLButto
       [styles['Button--large']]: size === ElementSize.Large,
       [styles['Button--primary']]: variant === 'primary',
       [styles['Button--secondary']]: variant === 'secondary',
+      [styles['Button--ghost']]: variant === 'ghost',
     },
     className
   );
 
   return (
-    <button {...props} className={classes} disabled={disabled}>
+    <button {...props} className={classes} disabled={disabled} style={{ width: width }}>
       {props.children}
     </button>
   );

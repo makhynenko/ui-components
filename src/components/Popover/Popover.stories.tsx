@@ -392,6 +392,7 @@ storiesOf('Popover', module).add('Default', () => {
           placeholder={'Please insert color'}
           size={ElementSize.Medium}
           onChange={handleColorChange}
+          width='250px'
         />
         <Popover
           trigger={newSelectedTrigger}
@@ -408,6 +409,7 @@ storiesOf('Popover', module).add('Default', () => {
           placeholder={'Max-width: 400px'}
           size={ElementSize.Medium}
           onChange={handleWidthChange}
+          width='250px'
         />
         <Popover
           trigger={newSelectedTrigger}
