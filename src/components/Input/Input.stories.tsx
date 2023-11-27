@@ -1,10 +1,13 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Input } from './Input';
 import { ElementSize } from '../../types';
+import { Button } from '../Button';
 
 storiesOf('Input', module).add('Default', () => {
   const [currentValue, setCurrentValue] = useState<string>('');
+
+  const myRef = useRef<HTMLInputElement>(null);
 
   const onInputChange = useCallback((e) => {
     setCurrentValue(e.target.value);
@@ -140,7 +143,31 @@ storiesOf('Input', module).add('Default', () => {
         clearable
       />
 
-      <p>IMPORTANT!</p>
+      <p>INPUT WITH ref</p>
+      <Input
+        ref={myRef}
+        placeholder={'text'}
+        size={ElementSize.Large}
+        width='250px'
+        onClear={onClear}
+        onChange={onInputChange}
+        value={currentValue}
+        icon='search'
+        iconPosition='end'
+        clearable
+      />
+      <p></p>
+      <Button
+        onClick={() => {
+          if (myRef?.current) {
+            myRef.current.value = 'button ref';
+          }
+        }}
+      >
+        Set input value via ref
+      </Button>
+
+      <p>IMPORTANT INFO!</p>
       <p>You can set necessary width for input</p>
     </>
   );
