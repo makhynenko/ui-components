@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef } from 'react';
+import React, { forwardRef, useCallback, useMemo, useRef } from 'react';
 import cn from 'classnames';
 import { IconName } from '../Icons/types';
 import { Icons } from '../Icons';
@@ -16,19 +16,22 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
   iconPosition?: 'start' | 'end';
 }
 
-export const Input: React.FC<InputProps> = ({
-  disabled,
-  invalid,
-  size: componentSize = ElementSize.Medium,
-  className,
-  icon,
-  clearable,
-  width = '100%',
-  onClear,
-  iconPosition = 'start',
-  ...props
-}) => {
-  const inputRef = useRef<HTMLInputElement>(null);
+export const Input = forwardRef<HTMLInputElement, InputProps>(function InputComponent(
+  {
+    disabled,
+    invalid,
+    size: componentSize = ElementSize.Medium,
+    className,
+    icon,
+    clearable,
+    width = '100%',
+    onClear,
+    iconPosition = 'start',
+    ...props
+  },
+  ref
+) {
+  const inputRef = useRef<HTMLInputElement>(null) || ref;
   const iconSizeMap: Record<ElementSize, number> = {
     [ElementSize.Small]: 14,
     [ElementSize.Medium]: 18,
@@ -107,4 +110,4 @@ export const Input: React.FC<InputProps> = ({
       ) : null}
     </div>
   );
-};
+});
