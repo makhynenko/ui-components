@@ -30,9 +30,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       iconPosition = 'start',
       ...props
     },
-    ref
+    outerRef
   ) => {
     const inputRef = useRef<HTMLInputElement>(null);
+
+    const ref = useMemo<React.RefObject<HTMLInputElement>>(
+      () => (outerRef as React.RefObject<HTMLInputElement>) || inputRef,
+      [outerRef, inputRef]
+    );
 
     const iconSizeMap: Record<ElementSize, number> = {
       [ElementSize.Small]: 14,
@@ -79,9 +84,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const onIconClick = useCallback(
       (e) => {
         e.stopPropagation();
-        inputRef.current?.focus();
+        ref.current?.focus();
       },
-      [inputRef]
+      [ref]
     );
 
     return (
@@ -92,7 +97,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           disabled={disabled}
           type='text'
           style={{ width }}
-          ref={ref || inputRef}
+          ref={ref}
         />
         {icon ? (
           <Icons
