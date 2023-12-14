@@ -1,5 +1,13 @@
 # Changelog
 
+### [1.5.4](https://github.com/makhynenko/ui-components/compare/v1.5.3...v1.5.4) (2023-11-28)
+
+
+### Bug Fixes
+
+* added forwarding of ref using forwardRef ([#26](https://github.com/makhynenko/ui-components/issues/26)) ([61e9235](https://github.com/makhynenko/ui-components/commit/61e923544989389c65f62fccde5186205717db65))
+* added type for forward ref ([#27](https://github.com/makhynenko/ui-components/issues/27)) ([eddbe21](https://github.com/makhynenko/ui-components/commit/eddbe21dd5f9cd5739fc2db64841ce3842f03239))
+
 ### [1.5.3](https://github.com/makhynenko/ui-components/compare/v1.5.2...v1.5.3) (2023-10-31)
 
 
