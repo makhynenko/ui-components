@@ -10,11 +10,10 @@ import cn from 'classnames';
 
 import { ITableBodyProps } from '..';
 
-// import { useInfinityLoader } from '../../../hooks';
-// import Loader from '../../Loader/Loader';
 import styles from '../Table.module.scss';
 import { ITableRecord } from '../types';
 import TableRow from './TableRow';
+import { Loader } from '../../Loader';
 
 type UseInfinityLoaderParams = {
   distance?: number;
@@ -29,7 +28,7 @@ export const useInfinityLoader = ({
   fetcher,
   hasMore,
 }: UseInfinityLoaderParams): UseInfinityLoaderTypes => {
-  const scrollerRef = useRef<Element>(null);
+  const scrollerRef = useRef<HTMLElement>(null);
   const loaderRef = useRef<Element>(null);
 
   useLayoutEffect(() => {
@@ -96,7 +95,7 @@ const TableBodyContent = <T extends Record<string, any>>(props: ITableBodyProps<
 
 export type TableBodyRef =
   | {
-      element: Element | null;
+      element: HTMLElement | null;
       getScrollLeft: () => number | undefined;
       scrollTo: (options?: ScrollToOptions) => void;
     }
@@ -125,13 +124,17 @@ const TableBody = forwardRef(
       () => ({
         scrollTo: handleScrollLeft,
         getScrollLeft,
-        element: scrollerRef.current,
+        element: scrollerRef.current as HTMLElement,
       }),
       [handleScrollLeft, getScrollLeft, scrollerRef]
     );
 
     if (props.isLoading) {
-      return <div className={styles.loaderContainer}>{/* <Loader /> */}</div>;
+      return (
+        <div className={styles.loaderContainer}>
+          {props.loader ? props.loader : <Loader size={32} />}
+        </div>
+      );
     }
 
     return (
@@ -145,7 +148,7 @@ const TableBody = forwardRef(
         <TableBodyContent<T> {...props} />
         {props.hasMore && (
           <div ref={loaderRef as any} className={styles.infinityLoaderContainer}>
-            {/* <Loader /> */}
+            {props.loader ? props.loader : <Loader size={32} />}
           </div>
         )}
       </div>

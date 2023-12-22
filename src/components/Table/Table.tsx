@@ -139,20 +139,20 @@ const Table = <T extends Record<string, any>>(props: ITableProps<T>) => {
   return (
     <div
       className={cn(props.className, styles.table)}
-      data-testid={props.dataTestId}
+      // data-testid={props.dataTestId}
       ref={tableRef as RefObject<HTMLDivElement>}
       style={props.style}
     >
       <TableHeader<T>
-        dataTestId={`${props.dataTestId}-header`}
         height={props.headerHeight}
         width={width}
         headerRef={headerRef}
         columns={columns}
-        sorting={props.sorting}
-        onSort={props.onSort}
         hasStickyColumns={hasStickyColumns}
         scrolledHorizontally={scrolledHorizontally}
+        // dataTestId={`${props.dataTestId}-header`}
+        // sorting={props.sorting}
+        // onSort={props.onSort}
       />
       {renderBody()}
     </div>
@@ -160,8 +160,8 @@ const Table = <T extends Record<string, any>>(props: ITableProps<T>) => {
 };
 
 Table.defaultProps = {
-  headerHeight: 56,
-  rowHeight: 72,
+  headerHeight: 48,
+  rowHeight: 48,
 };
 
 export default Table;

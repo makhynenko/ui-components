@@ -2,15 +2,15 @@ import React, { ReactElement } from 'react';
 
 const DEFAULT_COLUMN_WIDTH = 100;
 
-enum TableSortOrder {
-  Asc = 'ASC',
-  Desc = 'DESC',
-}
+// enum TableSortOrder {
+//   Asc = 'ASC',
+//   Desc = 'DESC',
+// }
 
-interface ITableSort<T = string> {
-  direction: TableSortOrder;
-  field: T;
-}
+// interface ITableSort<T = string> {
+//   direction: TableSortOrder;
+//   field: T;
+// }
 
 interface ITableSystemFields {
   $isExpanded: boolean;
@@ -24,19 +24,18 @@ type ITableRecordKey<T> = string | ((record: ITableRecord<T> | T) => string);
 interface ITableColumn<T> {
   $isLastSticky?: boolean;
   $stickyOffset?: number;
-  cellStyle?: React.CSSProperties | ((record: ITableRecord<T>) => React.CSSProperties);
+  cellStyle?: React.CSSProperties | ((record: ITableRecord<T>) => React.CSSProperties); //! Check
   dataIndex?: keyof T;
   key: string;
   // default is 100 relative points
+  width?: number | string;
   minWidth?: string;
-  renderCell?: (record: ITableRecord<T>) => ReactElement | string;
-  renderTitle?: () => ReactElement | string;
-  sortable?: boolean;
+  renderCell?: (record: ITableRecord<T>) => ReactElement | string; //! Check
+  renderTitle?: () => ReactElement | string; //! Check
   sticky?: boolean;
   // absolute value like '120px'
   title?: string;
-  titleStyle?: React.CSSProperties;
-  width?: number | string;
+  titleStyle?: React.CSSProperties; //! Check
 }
 
 interface ITableHeaderProps<T> {
@@ -45,10 +44,10 @@ interface ITableHeaderProps<T> {
   hasStickyColumns: boolean;
   headerRef: React.MutableRefObject<HTMLDivElement | null>;
   height?: number;
-  onSort?: (sorting: ITableSort) => void;
   scrolledHorizontally?: boolean;
-  sorting?: ITableSort;
   width: number;
+  // sorting?: ITableSort;
+  // onSort?: (sorting: ITableSort) => void;
 }
 
 interface ITableRowProps<T> {
@@ -82,13 +81,13 @@ interface ITableBodyProps<T> {
   loader?: ReactElement;
   onScroll?: (event: React.UIEvent<HTMLDivElement, UIEvent>) => void;
   onSelectRow?: (data: T) => void;
-  onSort?: (sorting: ITableSort) => void;
   rowHeight?: number;
   rowKey: ITableRecordKey<T>;
   scrolledHorizontally?: boolean;
-  sorting?: ITableSort;
   tableBody?: React.ComponentType<ITableBodyProps<T>> | null;
   width: number;
+  // sorting?: ITableSort;
+  // onSort?: (sorting: ITableSort) => void;
 }
 
 interface ITableProps<T> {
@@ -106,12 +105,12 @@ interface ITableProps<T> {
   loader?: ReactElement;
   onScroll?: (event: React.UIEvent) => void;
   onSelectRow?: (data: T) => void;
-  onSort?: (sorting: ITableSort) => void;
   rowHeight?: number;
   rowKey: ITableRecordKey<T>;
-  sorting?: ITableSort;
   style?: React.CSSProperties;
   tableBody?: React.ComponentType<ITableBodyProps<T>> | null;
+  // onSort?: (sorting: ITableSort) => void;
+  // sorting?: ITableSort;
 }
 
 interface ITableCellProps<T> {
@@ -121,13 +120,13 @@ interface ITableCellProps<T> {
   record: ITableRecord<T>;
 }
 
-interface ITableSorterProps {
-  className?: string;
-  columnKey: string;
-  dataTestId?: string;
-  onSort?: (sorting: ITableSort) => void;
-  sorting?: ITableSort;
-}
+// interface ITableSorterProps {
+//   className?: string;
+//   columnKey: string;
+//   dataTestId?: string;
+//   onSort?: (sorting: ITableSort) => void;
+//   sorting?: ITableSort;
+// }
 
 interface ITableFilterProps {
   className?: string;
@@ -147,9 +146,9 @@ export {
   ITableRecord,
   ITableRecordKey,
   ITableRowProps,
-  ITableSort,
-  ITableSorterProps,
   ITableSystemFields,
   ITableRowComponentProps,
-  TableSortOrder,
+  // ITableSort,
+  // ITableSorterProps,
+  // TableSortOrder,
 };
