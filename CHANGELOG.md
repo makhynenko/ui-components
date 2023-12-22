@@ -1,5 +1,41 @@
 # Changelog
 
+### [1.5.4](https://github.com/makhynenko/ui-components/compare/v1.5.3...v1.5.4) (2023-11-28)
+
+
+### Bug Fixes
+
+* added forwarding of ref using forwardRef ([#26](https://github.com/makhynenko/ui-components/issues/26)) ([61e9235](https://github.com/makhynenko/ui-components/commit/61e923544989389c65f62fccde5186205717db65))
+* added type for forward ref ([#27](https://github.com/makhynenko/ui-components/issues/27)) ([eddbe21](https://github.com/makhynenko/ui-components/commit/eddbe21dd5f9cd5739fc2db64841ce3842f03239))
+
+### [1.5.3](https://github.com/makhynenko/ui-components/compare/v1.5.2...v1.5.3) (2023-10-31)
+
+
+### Bug Fixes
+
+* add style to button ([#25](https://github.com/makhynenko/ui-components/issues/25)) ([83c348d](https://github.com/makhynenko/ui-components/commit/83c348d2a087348c17681b9dbcb6e4f967b5a6ea))
+
+### [1.5.2](https://github.com/makhynenko/ui-components/compare/v1.5.1...v1.5.2) (2023-10-31)
+
+
+### Bug Fixes
+
+* added ghost button  ([#24](https://github.com/makhynenko/ui-components/issues/24)) ([e631111](https://github.com/makhynenko/ui-components/commit/e63111112d286e1ac8d3b624fb63b433ad214ee8))
+
+### [1.5.1](https://github.com/makhynenko/ui-components/compare/v1.5.0...v1.5.1) (2023-10-30)
+
+
+### Bug Fixes
+
+* sidebar improvements ([d25336e](https://github.com/makhynenko/ui-components/commit/d25336e21f3f2de349fec538478a4e67d624c06b))
+
+## [1.5.0](https://github.com/makhynenko/ui-components/compare/v1.4.1...v1.5.0) (2023-10-30)
+
+
+### Features
+
+* create textarea component and change input ([#23](https://github.com/makhynenko/ui-components/issues/23)) ([197632c](https://github.com/makhynenko/ui-components/commit/197632c77d4435b7c20e2aa543cad124eeff7a60))
+
 ### [1.4.1](https://github.com/makhynenko/ui-components/compare/v1.4.0...v1.4.1) (2023-10-18)
 
 

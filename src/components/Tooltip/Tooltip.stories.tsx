@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Tooltip } from './Tooltip';
 import { storiesOf } from '@storybook/react';
 import { RadioGroup } from '../RadioGroup';
-import { PopoverAlign, PopoverPosition } from '../../types';
+import { ElementSize, PopoverAlign, PopoverPosition } from '../../types';
 import { Input } from '../Input';
 
 storiesOf('Tooltip', module).add('Default', () => {
@@ -65,7 +65,7 @@ storiesOf('Tooltip', module).add('Default', () => {
         options={PositionOptions}
         selectedValue={newSelectedPosition}
         onSelect={onPositionSelect}
-        size='large'
+        size={ElementSize.Large}
       />
 
       <p style={{ fontWeight: 'bold' }}>Choose needed align for further tooltip </p>
@@ -73,13 +73,18 @@ storiesOf('Tooltip', module).add('Default', () => {
         options={AlignOptions}
         selectedValue={newSelectedAlign}
         onSelect={onPositionAlign}
-        size='large'
+        size={ElementSize.Large}
       />
 
       <p style={{ fontWeight: 'bold' }}>
         Choose needed width for further tooltip - use number with `px`
       </p>
-      <Input placeholder={'Max-width: 400px'} size='medium' onChange={handleWidthChange} />
+      <Input
+        placeholder={'Max-width: 400px'}
+        size={ElementSize.Medium}
+        onChange={handleWidthChange}
+        width='250px'
+      />
 
       <div style={wrapperStyle}>
         <Tooltip
