@@ -1,30 +1,25 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { CSSProperties, ReactNode, useMemo } from 'react';
-
 import cn from 'classnames';
-
 import { ITableCellProps, ITableRecord } from '..';
-
 import styles from '../Table.module.scss';
 
-const TableCell = <T extends Record<string, any>> (props: ITableCellProps<T>) => {
+const TableCell = <T extends Record<string, any>>(props: ITableCellProps<T>) => {
   const { column, record, className } = props;
 
-  const cellStyle = useMemo<CSSProperties>(
-    () => {
-      let customStyles = column.cellStyle;
-      if (typeof column.cellStyle === 'function') {
-        customStyles = column.cellStyle(record);
-      }
+  const cellStyle = useMemo<CSSProperties>(() => {
+    let customStyles = column.cellStyle;
+    if (typeof column.cellStyle === 'function') {
+      customStyles = column.cellStyle(record);
+    }
 
-      return ({
-        ...customStyles,
-        width: column.width,
-        position: column.sticky ? 'sticky' : 'initial',
-        left: column.sticky ? column.$stickyOffset : 'initial',
-      });
-    },
-    [record, column],
-  );
+    return {
+      ...customStyles,
+      width: column.width,
+      position: column.sticky ? 'sticky' : 'initial',
+      left: column.sticky ? column.$stickyOffset : 'initial',
+    };
+  }, [record, column]);
 
   const cellValue = useMemo(() => {
     let value: string | ReactNode = '';
@@ -39,7 +34,11 @@ const TableCell = <T extends Record<string, any>> (props: ITableCellProps<T>) =>
 
     // wrap plain string value with container
     if (typeof value === 'string') {
-      value = <div className={styles.cellValue} title={value}>{value}</div>;
+      value = (
+        <div className={styles.cellValue} title={value}>
+          {value}
+        </div>
+      );
     }
 
     return value;
@@ -47,12 +46,7 @@ const TableCell = <T extends Record<string, any>> (props: ITableCellProps<T>) =>
 
   return (
     <div
-      className={cn(
-        styles.cell,
-        'padding-x-4 padding-y-4 body-default',
-        className,
-      )}
-      data-testid={props.dataTestId}
+      className={cn(styles.cell, className)}
       key={column.key}
       style={cellStyle}
     >

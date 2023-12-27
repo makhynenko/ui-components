@@ -1,9 +1,8 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import { RefObject, UIEvent, useCallback, useMemo, useRef, useState, useEffect } from 'react';
 import { useResizeDetector } from 'react-resize-detector';
-
 import cn from 'classnames';
-
 import styles from './Table.module.scss';
 import { TableBody, TableHeader } from './components';
 import { TableBodyRef } from './components/TableBody';
@@ -112,7 +111,6 @@ const Table = <T extends Record<string, any>>(props: ITableProps<T>) => {
 
   const renderBody = () => {
     const componentProps = {
-      dataTestId: props.dataTestId,
       fetchMore: props.fetchMore,
       hasMore: props.hasMore,
       onScroll,
@@ -139,7 +137,6 @@ const Table = <T extends Record<string, any>>(props: ITableProps<T>) => {
   return (
     <div
       className={cn(props.className, styles.table)}
-      // data-testid={props.dataTestId}
       ref={tableRef as RefObject<HTMLDivElement>}
       style={props.style}
     >
@@ -150,9 +147,6 @@ const Table = <T extends Record<string, any>>(props: ITableProps<T>) => {
         columns={columns}
         hasStickyColumns={hasStickyColumns}
         scrolledHorizontally={scrolledHorizontally}
-        // dataTestId={`${props.dataTestId}-header`}
-        // sorting={props.sorting}
-        // onSort={props.onSort}
       />
       {renderBody()}
     </div>

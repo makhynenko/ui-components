@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import cn from 'classnames';
-
 import styles from '../Table.module.scss';
 import { ITableRowComponentProps } from '../types';
 import TableCell from './TableCell';
@@ -31,7 +31,6 @@ const TableRow = <T extends Record<string, any>>(props: ITableRowComponentProps<
       <div
         tabIndex={0}
         key={props.record.$rowKey}
-        data-testid={`${props.dataTestId}-row`}
         className={styles.row}
         onClick={onSelectRow(props.record)}
         onKeyDown={(e) => {
@@ -47,7 +46,6 @@ const TableRow = <T extends Record<string, any>>(props: ITableRowComponentProps<
       >
         {props.columns.map((column) => (
           <TableCell
-            dataTestId={`${props.dataTestId}-cell-${column.key}`}
             key={column.key}
             column={column}
             record={props.record}

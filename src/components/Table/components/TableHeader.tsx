@@ -1,11 +1,8 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { useCallback } from 'react';
-
 import cn from 'classnames';
-
 import { ITableColumn, ITableHeaderProps } from '..';
-
 import styles from '../Table.module.scss';
-// import Sorter from './Sorter';
 
 /**
  * Table Header columns rendering strategy:
@@ -15,7 +12,6 @@ import styles from '../Table.module.scss';
  * - - the rest of regular columns
  */
 const TableHeader = <T extends Record<string, any>>(props: ITableHeaderProps<T>) => {
-  // const { onSort, sorting } = props;
   const renderHeaderCell = useCallback((column: ITableColumn<T>) => {
     return (
       <>
@@ -24,14 +20,6 @@ const TableHeader = <T extends Record<string, any>>(props: ITableHeaderProps<T>)
         ) : (
           <div className={styles.cellValue}>{column.title}</div>
         )}
-        {/* {column.sortable && (
-            <Sorter
-              dataTestId={`${props.dataTestId}-sorter-${column.key}`}
-              sorting={sorting}
-              columnKey={column.key}
-              onSort={onSort}
-            />
-          )} */}
       </>
     );
   }, []);
@@ -39,7 +27,6 @@ const TableHeader = <T extends Record<string, any>>(props: ITableHeaderProps<T>)
   return (
     <div
       className={`${styles.headerContainer} notes-default`}
-      // data-testid={props.dataTestId}
       style={{ lineHeight: `${props.height}px` }}
     >
       {props.hasStickyColumns &&
@@ -47,8 +34,7 @@ const TableHeader = <T extends Record<string, any>>(props: ITableHeaderProps<T>)
           .filter((c) => c.sticky)
           .map((c) => (
             <div
-              data-testid={`${props.dataTestId}-sticky-${c.key}`}
-              className={cn(styles.headerCell, styles.sticky, 'padding-x-4', {
+              className={cn(styles.headerCell, styles.sticky,{
                 [styles.lastStickyCell]: props.scrolledHorizontally && c.$isLastSticky,
               })}
               key={c.key}
@@ -74,8 +60,7 @@ const TableHeader = <T extends Record<string, any>>(props: ITableHeaderProps<T>)
         {props.columns.map((c) =>
           c.sticky ? (
             <div
-              // data-testid={`${props.dataTestId}-shadow-${c.key}`}
-              className={`${styles.headerCell} padding-x-4`}
+              className={`${styles.headerCell}`}
               key={c.key}
               style={{ ...c.titleStyle, width: c.width }}
             >
@@ -83,8 +68,7 @@ const TableHeader = <T extends Record<string, any>>(props: ITableHeaderProps<T>)
             </div>
           ) : (
             <div
-              // data-testid={`${props.dataTestId}-column-${c.key}`}
-              className={`${styles.headerCell} padding-x-4`}
+              className={`${styles.headerCell}`}
               key={c.key}
               role='columnheader'
               style={{ ...c.titleStyle, width: c.width }}

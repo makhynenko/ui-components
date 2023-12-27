@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { useMemo } from 'react';
-
 import { getColumnOffset } from './service';
 import { DEFAULT_COLUMN_WIDTH, ITableColumn } from './types';
 

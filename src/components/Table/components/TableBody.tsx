@@ -74,7 +74,7 @@ const TableBodyContent = <T extends Record<string, any>>(props: ITableBodyProps<
   }
 
   return (
-    <div data-testid={`${props.dataTestId}-body`}>
+    <div >
       {props.dataList?.map((record: ITableRecord<T>) => (
         <TableRow
           key={record.$rowKey}
@@ -84,7 +84,6 @@ const TableBodyContent = <T extends Record<string, any>>(props: ITableBodyProps<
           onSelectRow={props.onSelectRow}
           rowHeight={props.rowHeight}
           columns={props.columns}
-          dataTestId={props.dataTestId}
           scrolledHorizontally={props.scrolledHorizontally}
           expandableContent={props.expandableContent}
         />
