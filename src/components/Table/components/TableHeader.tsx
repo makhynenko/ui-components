@@ -34,7 +34,7 @@ const TableHeader = <T extends Record<string, any>>(props: ITableHeaderProps<T>)
           .filter((c) => c.sticky)
           .map((c) => (
             <div
-              className={cn(styles.headerCell, styles.sticky,{
+              className={cn(styles.headerCell, styles.sticky, {
                 [styles.lastStickyCell]: props.scrolledHorizontally && c.$isLastSticky,
               })}
               key={c.key}
