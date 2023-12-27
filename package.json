@@ -146,5 +146,9 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "@storybook/addon-actions": "^7.4.6",
+    "react-resize-detector": "^9.1.0"
   }
 }
