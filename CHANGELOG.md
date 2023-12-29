@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/makhynenko/ui-components/compare/v1.5.5...v1.6.0) (2023-12-29)
+
+
+### Features
+
+* created loader component ([#28](https://github.com/makhynenko/ui-components/issues/28)) ([8d00e5b](https://github.com/makhynenko/ui-components/commit/8d00e5b260494c4f16e53f822040e10d00fe5b80))
+
 ### [1.5.5](https://github.com/makhynenko/ui-components/compare/v1.5.4...v1.5.5) (2023-12-29)
 
 
