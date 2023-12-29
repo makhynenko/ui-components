@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.5.5](https://github.com/makhynenko/ui-components/compare/v1.5.4...v1.5.5) (2023-12-29)
+
+
+### Bug Fixes
+
+* fixed animation issue ([#31](https://github.com/makhynenko/ui-components/issues/31)) ([0d54f02](https://github.com/makhynenko/ui-components/commit/0d54f02554b50b60a863b67f3754a9a0eae06bcc))
+
 ### [1.5.4](https://github.com/makhynenko/ui-components/compare/v1.5.3...v1.5.4) (2023-11-28)
 
 
