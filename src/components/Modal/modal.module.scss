@@ -61,6 +61,14 @@
     animation: fade-out-overlay 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
 
+  .modalClose {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+
   .Modal {
     margin: 0 auto;
     max-width: 700px;
@@ -68,6 +76,7 @@
     background-color: var(--modal-background-color);
     padding: 16px;
     border-radius: 4px;
+    position: relative;
 
     &--In {
       animation: fade-in-bottom 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
