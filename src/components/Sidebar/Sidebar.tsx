@@ -64,7 +64,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <>
       {isMounted ? (
-        <div className={sidebarOverlayClasses} onClick={handleOutsideClick}>
+        <div className={sidebarOverlayClasses}>
+          <div className={styles.sidebarClose} onClick={handleOutsideClick} />
           <div
             className={sidebarClasses}
             style={{ maxWidth: width }}
