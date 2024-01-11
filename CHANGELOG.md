@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/makhynenko/ui-components/compare/v1.6.0...v1.7.0) (2024-01-11)
+
+
+### Features
+
+* table component ([#29](https://github.com/makhynenko/ui-components/issues/29)) ([b4e564d](https://github.com/makhynenko/ui-components/commit/b4e564dc4a531197acdb42582ad76262a2a0fd49))
+
 ## [1.6.0](https://github.com/makhynenko/ui-components/compare/v1.5.5...v1.6.0) (2023-12-29)
 
 
