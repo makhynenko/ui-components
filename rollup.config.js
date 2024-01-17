@@ -35,7 +35,7 @@ export default {
       modules: {
         // ref: https://github.com/madyankin/postcss-modules
         generateScopedName: (className, filename) => {
-          const file = path.basename(filename).replace('.scss', '');
+          const file = path.basename(filename).replace('.module.scss', '');
 
           return `ui-${file}-${className}`;
         },

@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.7.0](https://github.com/makhynenko/ui-components/compare/v1.6.0...v1.7.0) (2024-01-11)
+
+
+### Features
+
+* table component ([#29](https://github.com/makhynenko/ui-components/issues/29)) ([b4e564d](https://github.com/makhynenko/ui-components/commit/b4e564dc4a531197acdb42582ad76262a2a0fd49))
+
+## [1.6.0](https://github.com/makhynenko/ui-components/compare/v1.5.5...v1.6.0) (2023-12-29)
+
+
+### Features
+
+* created loader component ([#28](https://github.com/makhynenko/ui-components/issues/28)) ([8d00e5b](https://github.com/makhynenko/ui-components/commit/8d00e5b260494c4f16e53f822040e10d00fe5b80))
+
+### [1.5.5](https://github.com/makhynenko/ui-components/compare/v1.5.4...v1.5.5) (2023-12-29)
+
+
+### Bug Fixes
+
+* fixed animation issue ([#31](https://github.com/makhynenko/ui-components/issues/31)) ([0d54f02](https://github.com/makhynenko/ui-components/commit/0d54f02554b50b60a863b67f3754a9a0eae06bcc))
+
 ### [1.5.4](https://github.com/makhynenko/ui-components/compare/v1.5.3...v1.5.4) (2023-11-28)
 
 
