@@ -46,14 +46,13 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, children, onClose, classNa
 
   const handleOutsideClick = useCallback(() => {
     onClose?.();
-    },
-    [onClose]
-  );
+  }, [onClose]);
 
   return (
     <>
       {isMounted ? (
-        <div className={overlayClasses} onClick={handleOutsideClick}>
+        <div className={overlayClasses}>
+          <div className={styles.modalClose} onClick={handleOutsideClick} />
           <div
             className={modalClasses}
             onClick={(e) => {
