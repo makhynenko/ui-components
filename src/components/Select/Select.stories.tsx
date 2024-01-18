@@ -18,7 +18,10 @@ storiesOf('Select', module).add('Default', () => {
 
   return (
     <>
-      <Select options={selectOptions} />
+      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <Select options={selectOptions} />
+        <Select options={selectOptions} invalid />
+      </div>
 
       <p>Select different sizes</p>
       <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>

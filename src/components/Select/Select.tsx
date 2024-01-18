@@ -11,6 +11,8 @@ export interface SelectProps {
   onChange?: (value: string) => void;
   size?: ElementSize;
   className?: string;
+  placeholder?: string;
+  invalid?: boolean;
 }
 
 export const Select: React.FC<SelectProps> = ({
@@ -19,6 +21,8 @@ export const Select: React.FC<SelectProps> = ({
   onChange,
   size = ElementSize.Medium,
   className,
+  placeholder,
+  invalid,
 }) => {
   const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
   const [selectedOptionValue, setSelectedOptionValue] = useState(value || null);
@@ -96,13 +100,14 @@ export const Select: React.FC<SelectProps> = ({
     <div className={wrapperClasses} ref={ref}>
       <Input
         className={styles.inputWrapper}
-        placeholder='select needed option'
+        placeholder={placeholder}
         onFocus={openSelect}
         icon='chevronDown'
         value={selectedOptionLabel}
         readOnly
         size={size}
         iconPosition='end'
+        invalid={invalid}
       />
       {isSelectOpen ? (
         <ul className={listClasses}>
