@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.7.2](https://github.com/makhynenko/ui-components/compare/v1.7.1...v1.7.2) (2024-01-18)
+
+
+### Bug Fixes
+
+* fix tooltip ([#33](https://github.com/makhynenko/ui-components/issues/33)) ([9cbea46](https://github.com/makhynenko/ui-components/commit/9cbea46001915f728bc82d0846e81dfdddc0abb3))
+
 ### [1.7.1](https://github.com/makhynenko/ui-components/compare/v1.7.0...v1.7.1) (2024-01-17)
 
 
