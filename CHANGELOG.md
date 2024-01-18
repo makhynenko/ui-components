@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.7.1](https://github.com/makhynenko/ui-components/compare/v1.7.0...v1.7.1) (2024-01-17)
+
+
+### Bug Fixes
+
+* added invalid prop for select ([#30](https://github.com/makhynenko/ui-components/issues/30)) ([e5ae539](https://github.com/makhynenko/ui-components/commit/e5ae539bafdb3993af0152a06238f8bca7d214ff))
+
 ## [1.7.0](https://github.com/makhynenko/ui-components/compare/v1.6.0...v1.7.0) (2024-01-11)
 
 

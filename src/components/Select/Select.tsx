@@ -12,6 +12,7 @@ export interface SelectProps {
   size?: ElementSize;
   className?: string;
   placeholder?: string;
+  invalid?: boolean;
 }
 
 export const Select: React.FC<SelectProps> = ({
@@ -21,6 +22,7 @@ export const Select: React.FC<SelectProps> = ({
   size = ElementSize.Medium,
   className,
   placeholder,
+  invalid,
 }) => {
   const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
   const [selectedOptionValue, setSelectedOptionValue] = useState(value || null);
@@ -105,6 +107,7 @@ export const Select: React.FC<SelectProps> = ({
         readOnly
         size={size}
         iconPosition='end'
+        invalid={invalid}
       />
       {isSelectOpen ? (
         <ul className={listClasses}>
