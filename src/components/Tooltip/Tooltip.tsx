@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Popover } from '../Popover/Popover';
 import { PopoverAlign, PopoverPosition, PopoverTrigger } from '../../types';
 
@@ -7,6 +7,7 @@ export interface TooltipProps {
   position?: PopoverPosition;
   align?: PopoverAlign;
   width?: string;
+  children?: ReactNode;
 }
 
 export const Tooltip: React.FC<TooltipProps> = ({
@@ -17,17 +18,15 @@ export const Tooltip: React.FC<TooltipProps> = ({
   children,
 }) => {
   return (
-    <div>
-      <Popover
-        position={position}
-        trigger={PopoverTrigger.Hover}
-        isOpen={false}
-        align={align}
-        width={width}
-        content={<span>{text}</span>}
-      >
-        {children}
-      </Popover>
-    </div>
+    <Popover
+      position={position}
+      trigger={PopoverTrigger.Hover}
+      isOpen={false}
+      align={align}
+      width={width}
+      content={<span>{text}</span>}
+    >
+      {children}
+    </Popover>
   );
 };
