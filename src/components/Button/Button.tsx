@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import styles from './button.module.scss';
 import { ElementSize } from '../../types';
