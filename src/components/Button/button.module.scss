@@ -100,5 +100,37 @@
   &.Button--disabled {
     opacity: 0.4;
     pointer-events: none;
+
+    svg {
+      circle {
+        stroke: var(--button-primary-text-color);
+      }
+    }
+
+    &.Button--secondary {
+      svg {
+        circle {
+          stroke: var(--button-secondary-text-color);
+        }
+      }
+    }
+
+    &.Button--ghost {
+      svg {
+        circle {
+          stroke: var(--button-ghost-text-color);
+        }
+      }
+    }
+  }
+
+  .loadingWrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    .loadingText {
+      margin: 0;
+    }
   }
 }
