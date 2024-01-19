@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.7.3](https://github.com/makhynenko/ui-components/compare/v1.7.2...v1.7.3) (2024-01-19)
+
+
+### Bug Fixes
+
+* f5 added zIndex ([#35](https://github.com/makhynenko/ui-components/issues/35)) ([86e23d7](https://github.com/makhynenko/ui-components/commit/86e23d7511f4ab929138bdd030998efed82d64af))
+
 ### [1.7.2](https://github.com/makhynenko/ui-components/compare/v1.7.1...v1.7.2) (2024-01-18)
 
 
