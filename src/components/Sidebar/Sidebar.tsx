@@ -9,6 +9,7 @@ export interface SidebarProps {
   onClose?: () => void;
   direction?: 'left' | 'right';
   width?: string;
+  zIndex?: number;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -18,6 +19,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   className,
   direction = 'left',
   width = '200px',
+  zIndex,
 }) => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
@@ -64,7 +66,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <>
       {isMounted ? (
-        <div className={sidebarOverlayClasses} onClick={handleOutsideClick}>
+        <div
+          className={sidebarOverlayClasses}
+          onClick={handleOutsideClick}
+          style={{ zIndex: zIndex }}
+        >
           <div
             className={sidebarClasses}
             style={{ maxWidth: width }}

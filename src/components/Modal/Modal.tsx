@@ -7,9 +7,10 @@ export interface ModalProps {
   children?: ReactNode;
   isOpen: boolean;
   onClose?: () => void;
+  zIndex?: number;
 }
 
-export const Modal: React.FC<ModalProps> = ({ isOpen, children, onClose, className }) => {
+export const Modal: React.FC<ModalProps> = ({ isOpen, children, onClose, className, zIndex }) => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
   useEffect(() => {
@@ -46,14 +47,12 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, children, onClose, classNa
 
   const handleOutsideClick = useCallback(() => {
     onClose?.();
-    },
-    [onClose]
-  );
+  }, [onClose]);
 
   return (
     <>
       {isMounted ? (
-        <div className={overlayClasses} onClick={handleOutsideClick}>
+        <div className={overlayClasses} onClick={handleOutsideClick} style={{ zIndex: zIndex }}>
           <div
             className={modalClasses}
             onClick={(e) => {
