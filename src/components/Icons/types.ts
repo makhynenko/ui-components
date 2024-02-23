@@ -66,4 +66,5 @@ export type IconName =
   | 'truck'
   | 'user'
   | 'crossCircle'
-  | 'cross';
+  | 'cross'
+  | 'refresh';
