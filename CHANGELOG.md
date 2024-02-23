@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.7.4](https://github.com/makhynenko/ui-components/compare/v1.7.3...v1.7.4) (2024-02-23)
+
+
+### Bug Fixes
+
+* Add refresh icon ([#36](https://github.com/makhynenko/ui-components/issues/36)) ([0f051ed](https://github.com/makhynenko/ui-components/commit/0f051edb2179976f901f8ced0952f9d5ad070c04))
+
 ### [1.7.3](https://github.com/makhynenko/ui-components/compare/v1.7.2...v1.7.3) (2024-01-19)
 
 
