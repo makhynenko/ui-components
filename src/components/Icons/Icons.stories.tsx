@@ -285,6 +285,10 @@ storiesOf('Icons', module).add('Default', () => {
           <Icons name='cross' color={newColor} size={newSize} />
           <p className={styles.iconName}>cross</p>
         </li>
+        <li className={styles.iconsItem}>
+          <Icons name='refresh' color={newColor} size={newSize} />
+          <p className={styles.iconName}>refresh</p>
+        </li>
       </ul>
     </>
   );

@@ -63,6 +63,7 @@ import TruckIcon from './IconsCollection/TruckIcon';
 import UserIcon from './IconsCollection/UserIcon';
 import CrossCircleIcon from './IconsCollection/CrossCircleIcon';
 import CrossIcon from './IconsCollection/CrossIcon';
+import RefreshIcon from './IconsCollection/RefreshIcon';
 
 export interface IconsProps extends IconProps {
   name: IconName;
@@ -132,6 +133,7 @@ const iconsMap = {
   user: UserIcon,
   crossCircle: CrossCircleIcon,
   cross: CrossIcon,
+  refresh: RefreshIcon,
 };
 
 export const Icons: React.FC<IconsProps> = ({ name, ...props }) => {
