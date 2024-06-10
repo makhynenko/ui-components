@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { IconName } from '../Icons/types';
 import { Icons } from '../Icons';
 import styles from './input.module.scss';
-import { ElementSize } from '../../types';
+import { ElementSize, InputType } from '../../types';
 
 export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   disabled?: boolean;
@@ -12,6 +12,7 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
   icon?: IconName;
   clearable?: boolean;
   width?: string;
+  type?: InputType;
   onClear?: () => void;
   iconPosition?: 'start' | 'end';
 }
@@ -23,6 +24,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       invalid,
       size: componentSize = ElementSize.Medium,
       className,
+      type = InputType.Text,
       icon,
       clearable,
       width = '100%',
@@ -95,7 +97,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           {...props}
           className={inputClasses}
           disabled={disabled}
-          type='text'
+          type={type}
           style={{ width }}
           ref={ref}
         />

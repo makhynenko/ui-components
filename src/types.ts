@@ -4,6 +4,11 @@ export enum ElementSize {
   Large = 'large',
 }
 
+export enum InputType {
+  Text = 'text',
+  Password = 'password',
+}
+
 export enum PopoverTrigger {
   Hover = 'hover',
   Click = 'click',
