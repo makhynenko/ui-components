@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Input } from './Input';
-import { ElementSize } from '../../types';
+import { ElementSize, InputType } from '../../types';
 import { Button } from '../Button';
 
 storiesOf('Input', module).add('Default', () => {
@@ -79,6 +79,17 @@ storiesOf('Input', module).add('Default', () => {
           size={ElementSize.Large}
           icon='search'
           disabled
+        />
+      </div>
+
+      <p>INPUT TYPE</p>
+      <div style={wrapperStyles}>
+        <Input placeholder={'text'} type={InputType.Text} size={ElementSize.Medium} width='250px' />
+        <Input
+          placeholder={'text'}
+          type={InputType.Password}
+          size={ElementSize.Medium}
+          width='250px'
         />
       </div>
 
