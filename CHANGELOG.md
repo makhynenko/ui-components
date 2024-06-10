@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.7.5](https://github.com/makhynenko/ui-components/compare/v1.7.4...v1.7.5) (2024-06-10)
+
+
+### Bug Fixes
+
+* add type for input  ([#37](https://github.com/makhynenko/ui-components/issues/37)) ([5b3fc24](https://github.com/makhynenko/ui-components/commit/5b3fc24e4393047fd75b785f09b316a3cdba3857))
+
 ### [1.7.4](https://github.com/makhynenko/ui-components/compare/v1.7.3...v1.7.4) (2024-02-23)
 
 
